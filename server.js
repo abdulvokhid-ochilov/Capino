@@ -18,7 +18,7 @@ app.use(express.static("public"));
 
 //mongoose
 const mongoose = require("mongoose");
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb+srv://admin-asliddin:AB17071998@@cluster0.yktos.mongodb.net/CapinoDB", { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 
@@ -177,10 +177,11 @@ app.use("/outputdb", outputdbRouter);
 
 
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+    port = 3000;
+}
 
-
-
-
-app.listen(process.env.PORT || 3000, () => {
-    console.log('the app is running on port 3000');
+app.listen(port, () => {
 });
+
