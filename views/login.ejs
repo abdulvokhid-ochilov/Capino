@@ -14,14 +14,14 @@
             <p class="heading-text"> CFS 무인 입출고증 발행시스템 </p>
         </div>
         <div class="log-in">
-            <form action="#">
+            <form action="/" method="POST">
                 <input type="text" class="user-name" name="user-name" placeholder="user name">
                 <input type="password" class="password" name="password" placeholder="password">
-
-                <label class="checkbox" for="check"> <input type="checkbox" id="check"> 체크시 아이디 암호가 저장됩니다 </label>
-
-                <button class="log-in-btn"> <a href="/main"> 로그인 </a> </button>
-                <button class="without-log-in"> <a href="/main"> 로그인 없이 이용하기 </a></button>
+                <div class="check-box">
+                    <label> <input type="checkbox" name="checkbox"> 체크시 아이디 암호가 저장됩니다 </label>
+                </div>
+                <button type="submit" class="log-in-btn"> 로그인 </button>
+                <button type="submit" class="without-log-in"> 로그인 없이 이용하기 </button>
 
             </form>
         </div>
