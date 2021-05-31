@@ -178,7 +178,6 @@ input::-webkit-inner-spin-button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 .main-page-btns {
   height: 30%;
