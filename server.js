@@ -47,36 +47,45 @@ app.use("/outputdb", outputdbRouter);
 
 //input router
 
-// get.get("/input", (req, res) => {
-//     res.render("input/input");
-// });
+const inputRouter = require("./routes/input");
+app.use("/", inputRouter);
 
-// get.post("/input", (req, res) => {
-//     const data = req.body;
-//     if (req.body.qr === "qr") {
-//         jsonData = JSON.stringify(data);
-//         qr.toDataURL(jsonData, (err, url) => {
-
-//             if (err) {
-//                 res.send("Error occured");
-//             } else {
-
-//                 res.render("QR", { url });
-//             }
-//         });
-//     }
-// });
+const inputdbRouter = require("./routes/input");
+app.use("/inputdb", inputdbRouter);
 
 
 
-// //login
-// const loginRouter = require("./routes/login");
-// app.use("/", loginRouter);
 
-// //main
-// app.get("/main", (req, res) => {
-//     res.render("main");
-// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

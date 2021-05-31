@@ -4,12 +4,12 @@ const outputSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    name: String,
-    carNo: String,
-    phoneNo: String,
-    company: String,
-    client: Array,
-    BL: Array,
-    quantity: Array
+    _name: String,
+    _carNo: String,
+    _phoneNo: String,
+    _company: String,
+    _client: Array,
+    _BL: Array,
+    _quantity: Array
 });
 module.exports = mongoose.model('Output', outputSchema);

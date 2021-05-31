@@ -5,7 +5,7 @@ const outputDB = require('../modules/outputDB');
 
 
 
-const OutputDB = require("../modules/outputDB");
+
 
 router.get("/output", (req, res) => {
     res.render("output/output");
@@ -13,13 +13,13 @@ router.get("/output", (req, res) => {
 router.post("/output", (req, res) => {
     const data = req.body;
     const output = new OutputDB({
-        name: data.성함,
-        carNo: data.차랑번호,
-        phoneNo: data.연락처,
-        company: data.소속회사,
-        client: data.화주명,
-        BL: data.비엘,
-        quantity: data.출고수량
+        _name: data.성함,
+        _carNo: data.차랑번호,
+        _phoneNo: data.연락처,
+        _company: data.소속회사,
+        _client: data.화주명,
+        _BL: data.비엘,
+        _quantity: data.출고수량
     });
     output.save();
     if (req.body.sbm === "qr") {
@@ -37,12 +37,16 @@ router.post("/output", (req, res) => {
 });
 
 
-
 // database page
 
 router.get("/output/outputdb", (req, res) => {
-
-    outputDB.find({}, (err, db) => {
+    const today = new Date();
+    const date = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    outputDB.find({
+        date: {
+            $gte: date
+        }
+    }, (err, db) => {
         if (err) {
             console.log(err);
         } else {
@@ -52,15 +56,27 @@ router.get("/output/outputdb", (req, res) => {
 
 });
 
+
 router.post("/output/outputdb", (req, res) => {
-    //req.body submits to this page pass the data to function(default)
-    //if nothing is passed function finds based on the default value else 
-    // finds the passed value 
+    //function(default) 
+    const from = req.body.from;
+    const to = req.body.to;
+    const clientName = req.body.name;
+    const phoneNo = req.body.phoneNo;
+    const carNo = req.body.carNo;
 
-
-
-
-    //redirect to the page 
+    outputDB.find({
+        date: {
+            $gte: new Date(Date.parse(from)),
+            $lte: new Date(Date.parse(`${to} 23:59:59 GMT`))
+        }
+    }, (err, db) => {
+        if (err) {
+            // console.log(err);
+        } else {
+            res.render("output/outputdb", { collections: db });
+        }
+    });
 });
 
 module.exports = router;
