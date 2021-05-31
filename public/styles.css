@@ -18,7 +18,7 @@ body {
   min-height: 100vh;
   font-family: sans-serif;
   font-size: 16px;
-  background-color: #eeeeee;
+  background-color: #fff;
   overflow: scroll;
   position: relative;
 }
@@ -207,10 +207,9 @@ input::-webkit-inner-spin-button {
   font-size: 1.2rem;
   font-weight: 600;
 }
-.slc {
-  font-size: 2rem;
-  font-weight: 900;
-  margin-right: 1rem;
+.logo-img{
+  height: 4rem;
+  width: 15rem;
 }
 
 /********* OUTPUT PAGE***********/
