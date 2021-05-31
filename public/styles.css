@@ -186,46 +186,13 @@ input::-webkit-inner-spin-button {
   justify-content: center;
   align-items: center;
 }
-.output-btn, .input-btn{
-  height: 6rem;
-  width: 10rem;
-  border-radius: 10px;
-  color: #fff;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 0.3em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.btn-imgs{
+  width: 15rem;
+  height: 3.5rem;
+  margin: 1rem;
 }
 
-.output-btn {
-  background-color: var(--main-red);
-}
-.input-btn {
-  background-color: #000;
-  margin-left: 2rem;
-}
-.other-btns {
-  height: 6rem;
-  width: 7rem;
-  margin-left: 4rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
- .other-btns a{
-  color: #fff;
-  background-color: #0061a8;
-  height: 2.5rem;
-  width: 100%;
-  border-radius: 5px;
-  font-size: 1rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 .main-footer{
   width: var(--main-width);
   height: 5rem;
