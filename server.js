@@ -53,7 +53,9 @@ app.use("/", inputRouter);
 const inputdbRouter = require("./routes/input");
 app.use("/inputdb", inputdbRouter);
 
-
+// QR router
+const qrRouter = require("./routes/QR");
+app.use("/", qrRouter);
 
 
 

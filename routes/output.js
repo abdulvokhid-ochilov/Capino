@@ -12,7 +12,7 @@ router.get("/output", (req, res) => {
 });
 router.post("/output", (req, res) => {
     const data = req.body;
-    const output = new OutputDB({
+    const output = new outputDB({
         _name: data.성함,
         _carNo: data.차랑번호,
         _phoneNo: data.연락처,

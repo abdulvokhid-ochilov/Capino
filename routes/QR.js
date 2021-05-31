@@ -11,9 +11,7 @@ router.post("/QR", (req, res) => {
         from: '+19048779861'
     }).then(message => res.send(`${alert("success!")}`));
 });
-router.listen(process.env.PORT || 3000, () => {
-    console.log('the app is running on port 3000');
-});
+
 
 
 module.exports = router;

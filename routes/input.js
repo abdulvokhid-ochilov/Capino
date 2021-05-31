@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+const qr = require("qrcode");
 const inputDB = require("../modules/inputDB");
 
 // input
