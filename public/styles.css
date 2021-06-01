@@ -461,7 +461,7 @@ font-size: 2rem;
 }
 .data-t tr{
   height: 2rem;
-  border-bottom: solid #000 1px;
+  border-bottom: solid #000 0.5px;
 }
 .data-t td{
   padding-left: 1rem;
