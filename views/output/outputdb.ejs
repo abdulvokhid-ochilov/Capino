@@ -8,9 +8,9 @@
 
 <body>
     <section class="cfs-cont">
-        <header class="out-inp-header">
-            <h1 class="out-inp-heading"> 출고 조회 </h1>
-            <ul class="out-inp-nav">
+        <header class="nav output-color">
+            <a href="/main"><img class="nav-logo-img" src="../../img/KakaoTalk_20210531_214254921.png" alt=""></a>
+            <ul class="nav-list">
                 <li> <a href="/main" class="nav-link ">MAIN</a></li>
                 <li> <a href="/output" class="nav-link ">출고</a></li>
                 <li> <a href="/input" class="nav-link ">입고</a></li>
@@ -20,37 +20,30 @@
         </header>
         <main class="cfs-main">
             <h2>출고 조회</h2>
-            <table class="search-row">
-                <form action="/output/outputdb" method="POST">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <input name="from" type="text" placeholder="yyyy-mm-dd">
-                                <span style="margin-left: 1rem;"> ~ </span>
-                            </td>
-                            <td>
-                                <input name="to" type="text" placeholder="yyyy-mm-dd">
-                            </td>
-                            <td>
-                                <input name="name" type="text " placeholder="성함">
-                            </td>
-                            <td>
-                                <input type="text" name="phoneNo" placeholder="연락처">
-                            </td>
-                            <td>
-                                <input type="text" name="carNo" placeholder="차량번호">
-                            </td>
-                            <td>
-                                <button class="search-btn" name="search" value="search" type="submit"> 조회 </button>
-                            </td>
-                            <td>
-                            <td>
-                                <!-- <button class="pritn-btn"> 출력하기</button> -->
-                            </td>
-                        </tr>
-                    </tbody>
-                </form>
-            </table>
+            <form class="search" action="/input/inputdb" method="POST" autocomplete="off">
+                <div class="search-cel">
+                    <label class="label" for="date">전송일자</label>
+                    <input id="date" name="from" type="text" placeholder="yyyy-mm-dd">
+                    <span style="margin: 0 0.8rem;"> ~ </span>
+                    <input id="date" name="to" type="text" placeholder="yyyy-mm-dd">
+                </div>
+                <div class="search-cel">
+                    <label class="label" for="name">성함</label>
+                    <input id="name" name="name" type="text " placeholder="성함">
+                </div>
+                <div class="search-cel">
+                    <label class="label" for="phoneNo">연락처</label>
+                    <input id="phoneNo" type="text" name="phoneNo" placeholder="연락처">
+                </div>
+                <div class="search-cel">
+                    <label class="label" for="carNo">차량번호</label>
+                    <input type="text" name="carNo" placeholder="차량번호">
+                </div>
+                <div class="search-cel">
+                    <button class="search-btn" name="search" value="search" type="submit"> 조회 </button>
+                    <!-- <button class="pritn-btn"> 출력하기</button> -->
+                </div>
+            </form>
             <table class="data-t">
                 <thead>
                     <tr>

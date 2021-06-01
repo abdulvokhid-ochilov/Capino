@@ -8,9 +8,9 @@
 
 <body>
     <section class="input-cont">
-        <header class="out-inp-header">
-            <h1 class="out-inp-heading">입고 요청서</h1>
-            <ul class="out-inp-nav">
+        <header class="nav output-color">
+            <a href="/main"><img class="nav-logo-img" src="../../img/KakaoTalk_20210531_214254921.png" alt=""></a>
+            <ul class="nav-list">
                 <li> <a href="/main" class="nav-link ">MAIN</a></li>
                 <li> <a href="/output" class="nav-link ">출고</a></li>
                 <li> <a href="/input" class="nav-link ">입고</a></li>
@@ -19,9 +19,9 @@
             </ul>
         </header>
         <main class="input-info">
-            <form action="/input" method="POST">
-                <div class="input-personal-info personal-info">
-                    <h3> Personal Info</h3>
+            <h1 class="page-heading">입고 요청서</h1>
+            <form action="/input" method="POST" autocomplete="off">
+                <div class=" personal-info">
                     <table class="tper-pro-info">
                         <tbody>
                             <tr>
@@ -40,7 +40,6 @@
                     </table>
                 </div>
                 <div class="inp-pro-info1">
-                    <h3> Product Info</h3>
                     <table class="tper-pro-info">
                         <tbody>
                             <tr>
