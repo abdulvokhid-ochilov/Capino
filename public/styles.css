@@ -31,14 +31,7 @@ a{
   text-decoration: none;
   color: #fff;
 }
-/* input:active {
-  outline: var(--btn-blue);
-} */
-/* input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-} */
+
 /*******LOg-IN MAIN PAGE********/
 .capino-img{
   width: 100%;
@@ -137,6 +130,9 @@ input::-webkit-inner-spin-button {
   width: 15rem;
 }
 /********* Nav ***********/
+.active{
+  border-bottom: 4px solid #000 ;
+}
 .nav {
   width: 100%;
   padding: 0 5%;
@@ -461,7 +457,7 @@ font-size: 2rem;
 }
 .data-t tr{
   height: 2rem;
-  border-bottom: solid #000 0.5px;
+  border-bottom: solid rgb(161, 161, 161) 0.01px;
 }
 .data-t td{
   padding-left: 1rem;
