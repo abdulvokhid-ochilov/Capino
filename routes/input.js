@@ -55,25 +55,27 @@ router.get("/input/inputdb", (req, res) => {
 });
 
 router.post("/input/inputdb", (req, res) => {
-    //function(default) 
-    const from = req.body.from;
-    const to = req.body.to;
-    const clientName = req.body.name;
-    const phoneNo = req.body.phoneNo;
-    const carNo = req.body.carNo;
-
-    inputDB.find({
-        date: {
-            $gte: new Date(Date.parse(from)),
-            $lte: new Date(Date.parse(`${to} 23:59:59 GMT`))
-        }
-    }, (err, db) => {
-        if (err) {
-            // console.log(err);
-        } else {
-            res.render("input/inputdb", { collections: db });
-        }
-    });
+    let start = req.body.from ? new Date(Date.parse(`${req.body.from} 00:00:00 GMT`)) : from = new Date('May 29, 2021 00:00:00');
+    // let end = req.body.to ? new Date(Date.now()) : new Date(Date.parse(`${today.getFullYear(), today.getMonth(), today.getDate()} 23:59:59 GMT`));
+    const clientName = req.body.name || /\w*/gi;
+    const phoneNo = req.body.phoneNo || /\w*/gi;
+    const carNo = req.body.carNo || /\w*/gi;
+    if (req.body.search === "search") {
+        inputDB.find({
+            date: {
+                $gte: start
+                // $lte: end
+            },
+            // _name: clientName,
+            // _phoneNo: phoneNo,
+            // _carNo: carNo
+        }, (err, db) => {
+            if (err) {
+                // console.log(err);
+            } else {
+                res.render("input/inputdb", { collections: db });
+            }
+        });
+    }
 });
-
 module.exports = router;

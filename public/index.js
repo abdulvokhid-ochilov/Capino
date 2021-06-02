@@ -10,9 +10,28 @@ const inputdbLink = document.querySelector('.inputdb-link');
 const navLink = document.querySelectorAll('.nav-link');
 const h1 = document.querySelector('.page-heading').textContent;
 
+const printBtn = document.querySelector('.pritn-btn');
+if (printBtn) {
+    const printArea = document.querySelector('.print-cont').innerHTML;
+    const originalContents = document.body.innerHTML;
+
+    // print button functionality
+    printBtn.addEventListener('click', function (e) {
+        // e.preventDefault();
+        document.body.innerHTML = printArea;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+    });
+
+}
 
 
-const active = function (h1) {
+
+
+//navigation bar active function 
+const active = function (heading) {
     navLink.forEach((el) => {
         el.classList.remove('active');
     });
@@ -26,8 +45,8 @@ const active = function (h1) {
         outputLink.classList.add("active");
     }
 };
-console.log(active(h1));
-
+active(h1);
+//add table row functionality 
 const inpTableRow = `<tr>
                         <td>
                             <input type="text" name="화물명">

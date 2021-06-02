@@ -176,6 +176,7 @@ a{
 /********* OUT-INP-PAGE***********/
 .page-heading{
   font-size: 2rem;
+  margin-bottom: 2rem;
 }
 .personal-info {
   width: 100%;
@@ -227,10 +228,11 @@ a{
 }
 .tout-inp-pro-info th {
   text-align: left;
+
 }
 .tout-inp-pro-info th span {
   display: inline-block;
-  width: 80%;
+  width: 90%;
   padding: 0.5rem;
   text-align: center;
 }
@@ -238,7 +240,7 @@ a{
   height: 3rem;
 }
 .tout-inp-pro-info input[type="text"] {
-  width: 80%;
+  width: 90%;
   height: 2rem;
   border: 1px solid #aaaaaa;
   padding-left: 1rem;
@@ -407,21 +409,16 @@ a{
   width: 80vw;
   height: 80vh;
 }
-.cfs-main h2{
-margin-bottom: 1rem;
-font-size: 2rem;
-}
+
 .search{
   width: 100%;
   height: 3rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 
 }
-.search-cel{
-  margin: 1rem;
-}
+
 .search-cel input{
   width: 10rem;
   height: 2rem;
@@ -434,13 +431,15 @@ font-size: 2rem;
   background-color: var(--btn-blue);
   color: #fff;
   border-radius: 100px;
+  margin: 2rem;
 }
 .pritn-btn{
   width: 6rem;
   height: 2rem;
-  color: #000;
-  background-color: #aaaaaa;
-  margin-left: 1rem;
+  background-color: var(--btn-blue);
+  color: #fff;
+  border-radius: 100px;
+  
 }
 
 
@@ -456,7 +455,7 @@ font-size: 2rem;
 
 }
 .data-t tr{
-  height: 2rem;
+  height: 2.5rem;
   border-bottom: solid rgb(161, 161, 161) 0.01px;
 }
 .data-t td{
@@ -501,4 +500,19 @@ font-size: 2rem;
   .label{
     display: none;
   }
+}
+
+/* print page  */
+@page {
+  size: A4;
+  margin: 0;
+}
+@media print {
+  html, body {
+    width: 210mm;
+    height: 297mm;
+    display: flex;
+    justify-content: center;
+  }
+  /* ... the rest of the rules ... */
 }
