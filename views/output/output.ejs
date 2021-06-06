@@ -8,99 +8,81 @@
 
 <body>
     <section class="output-cont">
-        <header class="nav output-color">
-            <a href="/main"><img class="nav-logo-img" src="../../img/KakaoTalk_20210531_214254921.png" alt=""></a>
-            <ul class="nav-list">
-                <li> <a href="/main" class="nav-link input-hov">MAIN</a></li>
-                <li> <a href="/output" class="nav-link output-hov  output-link">출고</a></li>
-                <li> <a href="/input" class="nav-link input-link input-hov ">입고</a></li>
-                <li> <a href="/output/outputdb" class="nav-link output-hov outputdb-link">출고 조회</a></li>
-                <li> <a href="/input/inputdb" class="nav-link input-hov inputdb-link">입고 조회</a></li>
-            </ul>
-        </header>
-        <main class="output-info">
-            <h1 class="page-heading">출고 요청서</h1>
-            <form action="/output" method="POST" autocomplete="off">
-                <div class="personal-info">
-                    <table class="tper-pro-info">
-                        <tbody>
-                            <tr>
-                                <th> 기사님 성함 </th>
-                                <td> <input type="text" placeholder="성함" name="성함"> </td>
-                                <th> 연락처 </th>
-                                <td> <input type="text" placeholder="연락처" name="연락처"> </td>
-                            </tr>
-                            <tr>
-                                <th> 차랑번호 </th>
-                                <td> <input type="text" placeholder="차랑번호" name="차랑번호"> </td>
-                                <th> 소속회사 </th>
-                                <td> <input type="text" placeholder="소속회사" name="소속회사"> </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="output-product-info">
-                    <table class="tout-inp-pro-info out-bottom-table">
-                        <thead>
-                            <tr>
-                                <th><span>화주명(상호)</span> </th>
-                                <th> <span> B/L No. (비엘 번호)</span></th>
-                                <th> <span> 출고수량 </span> </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <input type="text" name="화주명">
-                                </td>
-                                <td>
-                                    <input type="text" name="비엘">
-                                </td>
-                                <td>
-                                    <input type="text" name="출고수량">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="text" name="화주명">
-                                </td>
-                                <td>
-                                    <input type="text" name="비엘">
-                                </td>
-                                <td>
-                                    <input type="text" name="출고수량">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="text" name="화주명">
-                                </td>
-                                <td>
-                                    <input type="text" name="비엘">
-                                </td>
-                                <td>
-                                    <input type="text" name="출고수량">
-                                </td>
-                            </tr>
+        <%- include("../partials/nav") -%>
+            <main class="output-info">
+                <h1 class="page-heading">출고 요청서</h1>
+                <form action="/output" method="POST" autocomplete="off">
+                    <div class="personal-info">
+                        <table class="tper-pro-info">
+                            <tbody>
+                                <tr>
+                                    <th> 기사님 성함 </th>
+                                    <td> <input type="text" placeholder="성함" name="성함"> </td>
+                                    <th> 연락처 </th>
+                                    <td> <input type="text" placeholder="연락처" name="연락처"> </td>
+                                </tr>
+                                <tr>
+                                    <th> 차랑번호 </th>
+                                    <td> <input type="text" placeholder="차랑번호" name="차랑번호"> </td>
+                                    <th> 소속회사 </th>
+                                    <td> <input type="text" placeholder="소속회사" name="소속회사"> </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="output-product-info">
+                        <table class="tout-inp-pro-info out-bottom-table">
+                            <thead>
+                                <tr>
+                                    <th><span>화주명(상호)</span> </th>
+                                    <th> <span> B/L No. (비엘 번호)</span></th>
+                                    <th> <span> 출고수량 </span> </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input type="text" name="화주명">
+                                    </td>
+                                    <td>
+                                        <input type="text" name="비엘">
+                                    </td>
+                                    <td>
+                                        <input type="text" name="출고수량">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="text" name="화주명">
+                                    </td>
+                                    <td>
+                                        <input type="text" name="비엘">
+                                    </td>
+                                    <td>
+                                        <input type="text" name="출고수량">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="text" name="화주명">
+                                    </td>
+                                    <td>
+                                        <input type="text" name="비엘">
+                                    </td>
+                                    <td>
+                                        <input type="text" name="출고수량">
+                                    </td>
+                                </tr>
 
-                        </tbody>
-                    </table>
-                    <div class="plus-btn-cont">
-                        <a class="out-plus-btn plus-btn"><span>+</span></a>
+                            </tbody>
+                        </table>
+                        <div class="plus-btn-cont">
+                            <a class="out-plus-btn plus-btn"><span>+</span></a>
+                        </div>
                     </div>
-                </div>
-                <footer class="footer">
-                    <div class="footer-btns">
-                        <button class="blue-btn" type=" submit" name="sbm" value="qr">QR만들기</button>
-                        <button class="blue-btn" type="submit" name="sbm" value="save">저장</button>
-                        <button class="grey-btn" type="submit" name="sbm" value="print"> 출고증인쇄</button>
-                    </div>
-                    <div>
-                        <!-- for copyright -->
-                    </div>
-                </footer>
-            </form>
-        </main>
+                    <%- include("../partials/footer") -%>
+                </form>
+            </main>
 
     </section>
     <script src="index.js"></script>
