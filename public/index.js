@@ -33,16 +33,21 @@ if (printBtn) {
 //navigation bar active function 
 const active = function (heading) {
     navLink.forEach((el) => {
-        el.classList.remove('active');
+        el.classList.remove('blue-active');
+        el.classList.remove('red-active');
     });
     if (h1 === "입고 조회") {
-        inputdbLink.classList.add('active');
+        // inputdbLink.classList.add('active');
+        inputdbLink.classList.add("blue-active");
     } else if (h1 === "출고 조회") {
-        outputdbLink.classList.add('active');
+        // outputdbLink.classList.add('active');
+        outputdbLink.classList.add("red-active");
     } else if (h1 === "입고 요청서") {
-        inputLink.classList.add("active");
+        // inputLink.classList.add("active");
+        inputLink.classList.add("blue-active");
     } else if (h1 === "출고 요청서") {
-        outputLink.classList.add("active");
+        // outputLink.classList.add("active");
+        outputLink.classList.add('red-active');
     }
 };
 active(h1);

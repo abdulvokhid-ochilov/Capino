@@ -10,6 +10,20 @@ const outputDB = require('../modules/outputDB');
 router.get("/output", (req, res) => {
     res.render("output/output");
 });
+
+
+// Data formating 
+const qrData = function (data) {
+    let text = `name: ${data.성함}\ncarNo:${data.차랑번호}\nphoneNo:${data.연락처}\ncompany: ${data.소속회사}`;
+    let productNo = 0;
+    data.화주명.forEach((el, i) => {
+        if (el.length > 0) {
+            productNo++;
+            text += `\nProduct${productNo}: \n화주명: ${el},  bl: ${data.비엘[i]},  quantity: ${data.출고수량[i]}`;
+        }
+    });
+    return text;
+};
 router.post("/output", (req, res) => {
     const data = req.body;
     const output = new outputDB({
@@ -23,12 +37,12 @@ router.post("/output", (req, res) => {
     });
     output.save();
     if (req.body.sbm === "qr") {
-        const jsonData = JSON.stringify(data);
-        qr.toDataURL(jsonData, (err, url) => {
+        const str = qrData(data);
+        qr.toFile(`${__dirname}/qr.png`, str, (err) => {
             if (err) {
-                res.send("Error occured");
+                console.log(__dirname);
             } else {
-                res.render("QR", { url: url });
+                res.render("QR", { url: `${__dirname}/qr.png` });
             }
         });
     } else {
@@ -40,9 +54,7 @@ router.post("/output", (req, res) => {
 // database page
 const today = new Date();
 const todayDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-console.log(todayDate);
 router.get("/output/outputdb", (req, res) => {
-    ;
     outputDB.find({
         date: {
             $gte: todayDate

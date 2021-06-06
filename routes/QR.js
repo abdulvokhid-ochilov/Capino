@@ -1,21 +1,46 @@
 const express = require('express');
 const router = express.Router();
+const imageToBase64 = require('image-to-base64');
 
 
+const path = require('path');
+const { msg } = require('coolsms-node-sdk');
+console.log(msg);
 
+
+const send = async (number) => {
+    // 이미지 업로드
+    try {
+        var { fileId } = await msg.uploadMMSImage(path.join(`${__dirname}/qr.png`));
+    } catch (e) {
+        console.log(number);
+    }
+
+    // MMS 발송
+    try {
+
+        const result = await msg.send({
+            messages: [
+                {
+                    to: `${number}`,
+                    from: '029302266',
+                    subject: 'MMS 제목',
+                    imageId: fileId,
+                    text: '이미지 아이디가 입력되면 MMS로 발송됩니다.'
+                }
+            ]
+        });
+        // console.log('RESULT:', result);
+    } catch (e) {
+        console.log(e);
+    }
+};
 
 
 
 router.post("/QR", (req, res) => {
-    const phone = req.body.phone;
-    const accountSid = 'AC99321e0fcd8ace4e5b3874c21a0013d1';
-    const authToken = 'e2a1771b46ef35e9936f5ff6a8a45e6b';
-    const client = require('twilio')(accountSid, authToken);
-    client.messages.create({
-        body: `${jsonData}`,
-        to: `${phone}`,
-        from: '+19048779861'
-    }).then(message => res.send(`${alert("success!")}`));
+    send(req.body.phone);
+    res.redirect("output");
 });
 
 

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const qr = require("qrcode");
+const mms = require("coolsms-node-sdk");
 const inputDB = require("../modules/inputDB");
 
 // input
@@ -8,6 +9,12 @@ router.get("/input", (req, res) => {
     res.render("input/input");
 });
 
+
+const qrData = function (data) {
+    let text = `name: ${data.성함}\ncarNo:${data.차랑번호}\nphoneNo:${data.연락처}\ncompany: ${data.소속회사}, \nforwarder:${data.포워다}, \nbookingNo:${data.부킹넘버}`;
+
+    return text;
+};
 router.post("/input", (req, res) => {
     const data = req.body;
     const input = new inputDB({
@@ -24,8 +31,8 @@ router.post("/input", (req, res) => {
     });
     input.save();
     if (req.body.sbm === "qr") {
-        const jsonData = JSON.stringify(data);
-        qr.toDataURL(jsonData, (err, url) => {
+        const str = qrData(data);
+        qr.toDataURL(str, (err, url) => {
             if (err) {
                 res.send("Error occured");
             } else {
