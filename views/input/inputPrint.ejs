@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>input-print</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="print.css">
+
+</head>
+
+<body class="input-print-body">
+    <div class="input-print-container1">
+        <div class="input-print-heading">
+            <p>[보관용]</p>
+            <h1> CFS 화물 입고증(<%= date%>-0014 )</h1>
+        </div>
+        <%- include("../partials/inputPrintPart") -%>
+    </div>
+    <div class="input-print-container2">
+        <div class="input-print-heading">
+            <p>[차량용]</p>
+            <h1> CFS 화물 입고증(<%= date%>-0014 )</h1>
+        </div>
+        <%- include("../partials/inputPrintPart") -%>
+    </div>
+    <button class="input-print-btn" onclick="window.print()"> 출고증인쇄</button>
+    <script src="index.js"></script>
+</body>
+
+</html>

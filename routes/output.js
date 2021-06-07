@@ -4,7 +4,10 @@ const qr = require("qrcode");
 const outputDB = require('../modules/outputDB');
 
 
-
+const getDate = function () {
+    const today = new Date();
+    return new Date(today.getFullYear(), today.getMonth(), today.getDate());
+};
 
 
 router.get("/output", (req, res) => {
@@ -45,15 +48,17 @@ router.post("/output", (req, res) => {
                 res.render("QR", { url: `${__dirname}/qr.png` });
             }
         });
-    } else {
+    } else if (req.body.sbm === "save") {
         res.redirect("/output");
+    } else {
+        res.render('output/outputPrint', { data: data, date: 0 });
     }
 });
 
 
 // database page
-const today = new Date();
-const todayDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+
+const todayDate = getDate();
 router.get("/output/outputdb", (req, res) => {
     outputDB.find({
         date: {

@@ -13,6 +13,11 @@ const inputSchema = new mongoose.Schema({
     _signature: String,
     _destinationPort: String,
     _shiper: String,
-    _departureDate: String
+    _departureDate: String,
+    _cargo: Array,
+    _packaging: Array,
+    _quantity: Array,
+    _volume: Array,
+    _weight: Array
 });
 module.exports = mongoose.model('Input', inputSchema);

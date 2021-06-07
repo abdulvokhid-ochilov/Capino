@@ -4,32 +4,58 @@ const qr = require("qrcode");
 const mms = require("coolsms-node-sdk");
 const inputDB = require("../modules/inputDB");
 
-// input
-router.get("/input", (req, res) => {
-    res.render("input/input");
-});
+
 
 
 const qrData = function (data) {
-    let text = `name: ${data.성함}\ncarNo:${data.차랑번호}\nphoneNo:${data.연락처}\ncompany: ${data.소속회사}, \nforwarder:${data.포워다}, \nbookingNo:${data.부킹넘버}`;
-
+    let text = `name: ${data.성함}\ncarNo:${data.차랑번호}\nphoneNo:${data.연락처}\ncompany: ${data.소속회사}, \nforwarder:${data.포워더}, \nbookingNo:${data.부킹넘버}`;
     return text;
 };
-router.post("/input", (req, res) => {
-    const data = req.body;
+
+//change to async
+const createDB = function (data) {
     const input = new inputDB({
         _name: data.성함,
         _phoneNo: data.연락처,
         _carNO: data.차량번호,
         _company: data.소속회사,
-        _forwarder: data.포워다,
+        _forwarder: data.포워더,
         _bookingNo: data.부킹넘버,
         _signature: data.황자,
         _destinationPort: data.도착항,
         _shiper: data.화주명,
-        _departureDate: data.출항일자
+        _departureDate: data.출항일자,
+        _cargo: data.화물명,
+        _packaging: data.포장규격,
+        _quantity: data.수량,
+        _volume: data.용적,
+        _weight: data.중량
     });
     input.save();
+};
+
+const getDate = function () {
+    const today = new Date();
+    return new Date(today.getFullYear(), today.getMonth(), today.getDate());
+};
+
+
+
+
+
+
+/***********   INPUT ROUTE   ********/
+router.get("/input", (req, res) => {
+    res.render("input/input");
+});
+
+
+
+router.post("/input", (req, res) => {
+    const data = req.body;
+    const date = createDB(data);
+
+    //HANDLING BUTTONS 
     if (req.body.sbm === "qr") {
         const str = qrData(data);
         qr.toDataURL(str, (err, url) => {
@@ -39,14 +65,19 @@ router.post("/input", (req, res) => {
                 res.render("QR", { url: url });
             }
         });
+    } else if (req.body.sbm === "print") {
+        res.render("input/inputPrint", { date: date, data: data });
     } else {
-        res.redirect("/input");
+        res.redirect('/input');
     }
 });
 
+
+
+
+/***********   INPUTDB ROUTE   ********/
 router.get("/input/inputdb", (req, res) => {
-    const today = new Date();
-    const date = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const date = getDate();
     inputDB.find({
         date: {
             $gte: date
@@ -85,4 +116,8 @@ router.post("/input/inputdb", (req, res) => {
         });
     }
 });
+
+/***********   INPUT PRINT ROUTE   ********/
+
+
 module.exports = router;

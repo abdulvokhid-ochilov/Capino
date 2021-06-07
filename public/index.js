@@ -9,15 +9,15 @@ const outputdbLink = document.querySelector('.outputdb-link');
 const inputdbLink = document.querySelector('.inputdb-link');
 const navLink = document.querySelectorAll('.nav-link');
 const h1 = document.querySelector('.page-heading').textContent;
-
 const printBtn = document.querySelector('.pritn-btn');
+
 if (printBtn) {
     const printArea = document.querySelector('.print-cont').innerHTML;
     const originalContents = document.body.innerHTML;
 
     // print button functionality
     printBtn.addEventListener('click', function (e) {
-        // e.preventDefault();
+        e.preventDefault();
         document.body.innerHTML = printArea;
 
         window.print();

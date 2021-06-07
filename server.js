@@ -45,7 +45,8 @@ app.use("/", outputRouter);
 const outputdbRouter = require("./routes/output");
 app.use("/outputdb", outputdbRouter);
 
-
+const outputPrintRouter = require("./routes/output");
+app.use("/outputPrint", outputPrintRouter);
 
 //input router
 const inputRouter = require("./routes/input");
@@ -54,7 +55,8 @@ app.use("/", inputRouter);
 const inputdbRouter = require("./routes/input");
 app.use("/inputdb", inputdbRouter);
 
-
+const inputPrintRouter = require("./routes/input");
+app.use("/inputPrint", inputPrintRouter);
 
 
 // QR router
