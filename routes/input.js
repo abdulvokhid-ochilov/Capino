@@ -1,15 +1,25 @@
 const express = require('express');
 const router = express.Router();
 const qr = require("qrcode");
-const mms = require("coolsms-node-sdk");
 const inputDB = require("../modules/inputDB");
-
+const fs = require('fs');
+const pngToJpeg = require('png-to-jpeg');
 
 
 
 const qrData = function (data) {
-    let text = `name: ${data.성함}\ncarNo:${data.차랑번호}\nphoneNo:${data.연락처}\ncompany: ${data.소속회사}, \nforwarder:${data.포워더}, \nbookingNo:${data.부킹넘버}`;
+    let text = `name: ${data.성함}\ncarNo:${data.차량번호}\nphoneNo:${data.연락처}\ncompany: ${data.소속회사} \nforwarder:${data.포워더} \nbookingNo:${data.부킹넘버}`;
     return text;
+};
+//generate jpeg file
+const convert = async function (url) {
+    const buffer = Buffer.from(url.split(/,\s*/)[1], 'base64');
+    try {
+        const qr = await pngToJpeg({ quality: 90 })(buffer);
+        fs.writeFileSync(`${__dirname}/qr.jpeg`, qr);
+    } catch (err) {
+        console.error("hello");
+    }
 };
 
 //change to async
@@ -62,6 +72,7 @@ router.post("/input", (req, res) => {
             if (err) {
                 res.send("Error occured");
             } else {
+                convert(url);
                 res.render("QR", { url: url });
             }
         });
@@ -71,8 +82,6 @@ router.post("/input", (req, res) => {
         res.redirect('/input');
     }
 });
-
-
 
 
 /***********   INPUTDB ROUTE   ********/

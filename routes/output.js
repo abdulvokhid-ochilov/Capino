@@ -9,7 +9,7 @@ const getDate = function () {
     const today = new Date();
     return new Date(today.getFullYear(), today.getMonth(), today.getDate());
 };
-
+//generate jpeg file
 const convert = async function (url) {
     const buffer = Buffer.from(url.split(/,\s*/)[1], 'base64');
     try {
