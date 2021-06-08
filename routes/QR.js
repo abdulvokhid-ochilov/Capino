@@ -11,7 +11,7 @@ const { msg } = require('coolsms-node-sdk');
  * MMS 발송 (최대 1만건 동시 발송)
  */
 
-const send = async function (phoneNo) {
+const send = async function () {
 
     // 이미지 업로드
     try {
@@ -30,7 +30,7 @@ const send = async function (phoneNo) {
         const result = await msg.send({
             messages: [
                 {
-                    to: `${phoneNo}`,
+                    to: `01033721707`,
                     from: '01087128235',
                     subject: 'MMS 제목',
                     imageId: fileId,
@@ -51,7 +51,7 @@ const send = async function (phoneNo) {
 
 router.post("/QR", (req, res) => {
     // createImg();
-    send(req.body.phone);
+    send();
     res.redirect("output");
 });
 
