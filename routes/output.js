@@ -2,13 +2,23 @@ const express = require('express');
 const router = express.Router();
 const qr = require("qrcode");
 const outputDB = require('../modules/outputDB');
-
+const pngToJpeg = require('png-to-jpeg');
+const fs = require('fs');
 
 const getDate = function () {
     const today = new Date();
     return new Date(today.getFullYear(), today.getMonth(), today.getDate());
 };
 
+const convert = async function (url) {
+    const buffer = Buffer.from(url.split(/,\s*/)[1], 'base64');
+    try {
+        const qr = await pngToJpeg({ quality: 90 })(buffer);
+        fs.writeFileSync(`${__dirname}/qr.jpeg`, qr);
+    } catch (err) {
+        console.error("hello");
+    }
+};
 
 router.get("/output", (req, res) => {
     res.render("output/output");
@@ -41,11 +51,12 @@ router.post("/output", (req, res) => {
     output.save();
     if (req.body.sbm === "qr") {
         const str = qrData(data);
-        qr.toFile(`${__dirname}/qr.png`, str, (err) => {
+        qr.toDataURL(str, (err, url) => {
             if (err) {
                 console.log(__dirname);
             } else {
-                res.render("QR", { url: `${__dirname}/qr.png` });
+                convert(url);
+                res.render("QR", { url: url });
             }
         });
     } else if (req.body.sbm === "save") {
