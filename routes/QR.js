@@ -1,9 +1,13 @@
+require('dotenv').config();
+
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-const { msg } = require('coolsms-node-sdk');
-
-
+const { msg, config } = require('coolsms-node-sdk');
+config.init({
+    apiKey: process.env.APIKEY,
+    apiSecret: process.env.APISECRET
+});
 
 
 
