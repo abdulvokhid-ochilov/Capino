@@ -5,8 +5,8 @@ const router = express.Router();
 const path = require('path');
 const { msg, config } = require('coolsms-node-sdk');
 config.init({
-    apiKey: process.env.APIKEY,
-    apiSecret: process.env.APISECRET
+    apiKey: 'NCSCH0HI34MWQBIP',
+    apiSecret: 'DILRAMBB9IT7CJIGYCETLSUKNBYNHY7Q'
 });
 
 
