@@ -56,7 +56,7 @@ router.post("/output", (req, res) => {
                 console.log(__dirname);
             } else {
                 convert(url);
-                res.render("QR", { url: url });
+                res.render("QR", { url: url, title: "출고용청서" });
             }
         });
     } else if (req.body.sbm === "save") {
@@ -84,7 +84,6 @@ router.get("/output/outputdb", (req, res) => {
     });
 
 });
-
 
 router.post("/output/outputdb", (req, res) => {
     let start = req.body.from ? new Date(Date.parse(`${req.body.from} 00:00:00 GMT`)) : from = new Date('May 29, 2021 00:00:00');

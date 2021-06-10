@@ -51,9 +51,6 @@ const getDate = function () {
 
 
 
-
-
-
 /***********   INPUT ROUTE   ********/
 router.get("/input", (req, res) => {
     res.render("input/input");
@@ -73,7 +70,7 @@ router.post("/input", (req, res) => {
                 res.send("Error occured");
             } else {
                 convert(url);
-                res.render("QR", { url: url });
+                res.render("QR", { url: url, title: "입고용청서" });
             }
         });
     } else if (req.body.sbm === "print") {
