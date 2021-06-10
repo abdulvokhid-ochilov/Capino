@@ -15,7 +15,7 @@ config.init({
  * MMS 발송 (최대 1만건 동시 발송)
  */
 
-const send = async function () {
+const send = async function (phone) {
 
     // 이미지 업로드
     try {
@@ -34,11 +34,11 @@ const send = async function () {
         const result = await msg.send({
             messages: [
                 {
-                    to: `01033721707`,
+                    to: `${phone}`,
                     from: '01087128235',
                     subject: 'MMS 제목',
                     imageId: fileId,
-                    text: 'hello '
+                    text: 'CFS 무인 입출고증 발행시스템'
                 }
             ]
         });
@@ -55,7 +55,7 @@ const send = async function () {
 
 router.post("/QR", (req, res) => {
     // createImg();
-    send();
+    send(req.body.phone);
     res.redirect("output");
 });
 
