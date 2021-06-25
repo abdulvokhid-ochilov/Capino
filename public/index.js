@@ -63,18 +63,21 @@ const inpTableRow = `<tr>
                             <input type="text" name="수량(개)">
                         </td>
                         <td>
-                            <input type="text" name="용적(CBM)">
+                            <input type="text" name="중량(Kg)"> 
                         </td>
                         <td>
-                            <input type="text" name="중량(Kg)">
+                            <input type="text" name="용적(CBM)">
                         </td>
                      </tr>`;
 const outTableRow = `<tr>
                         <td>
-                            <input type="text" name="화주명">
+                        <input type="text" name="비엘">
                         </td>
                         <td>
-                            <input type="text" name="비엘">
+                             <input type="text" name="화주명">
+                        </td>
+                        <td>
+                            <input type="text" name="전체수량">
                         </td>
                         <td>
                             <input type="text" name="출고수량">

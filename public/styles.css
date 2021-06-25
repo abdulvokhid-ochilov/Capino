@@ -6,7 +6,7 @@
   --btn-blue: #0779e4;
   --input-color: #21094e;
   --border-color: #070707;
-  --main-width: 70vw;
+  --main-width: 1000px;
 }
 * {
   padding: 0;
@@ -185,11 +185,11 @@ a{
 /********* OUT-INP-PAGE***********/
 .page-heading{
   font-size: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 .personal-info {
   width: 100%;
-  height: 15rem;
+  height: 10rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -439,8 +439,6 @@ a{
   height: auto;
   width: 100vw;
   position:relative;
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -557,13 +555,13 @@ a{
 
 /* INPUT PRINT PAGE */
 .input-print-body, .output-print-body{
-  width: 100%;
-  min-height: 100%;
-  padding: 3rem 0;
+  height: auto;
+  width: 100vw;
+  position:relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
+
 }
 
 .input-print-container1, 
@@ -571,7 +569,7 @@ a{
 .output-print-container1,
 .output-print-container2,
 .output-print-container3{
-  width: var(--main-width);
+  width: 210mm;
   display: flex;
   flex-direction: column;
   margin: 2rem 0;

@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <meta charset="UTF-8">
 <title>input-print</title>
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="print.css">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../print.css">
 
 </head>
 
 <body class="output-print-body">
     <div class="output-print-container1">
         <div class="output-print-heading">
+            <img src=<%=url %> alt="qr">
             <h1>CFS 화물 출고증(0117)</h1>
         </div>
         <p>[보관용]</p>
         <%- include("../partials/outputPrintPart") -%>
     </div>
     <div class="output-print-container2">
+
         <div class="output-print-heading">
+            <img src=<%=url %> alt="qr">
             <h1>CFS 화물 출고증(0117)</h1>
         </div>
         <p>[검수용]</p>
         <%- include("../partials/outputPrintPart") -%>
     </div>
     <div class="output-print-container3">
+
         <div class="output-print-heading">
+            <img src=<%=url %> alt="qr">
             <h1>CFS 화물 출고증(0117)</h1>
         </div>
         <p>[차량용]</p>

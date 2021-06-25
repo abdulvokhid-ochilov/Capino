@@ -27,46 +27,22 @@ mongoose.connect("mongodb+srv://admin-asliddin:AB17071998@@cluster0.yktos.mongod
 const loginRouter = require("./routes/login");
 app.use("/", loginRouter);
 
-
-
-
 //main router
 const mainRouter = require("./routes/main");
-app.use("/", mainRouter);
-
-
-
-
+app.use("/main", mainRouter);
 
 //output router
 const outputRouter = require("./routes/output");
-app.use("/", outputRouter);
+app.use("/output", outputRouter);
 
-const outputdbRouter = require("./routes/output");
-app.use("/outputdb", outputdbRouter);
-
-const outputPrintRouter = require("./routes/output");
-app.use("/outputPrint", outputPrintRouter);
 
 //input router
 const inputRouter = require("./routes/input");
-app.use("/", inputRouter);
-
-const inputdbRouter = require("./routes/input");
-app.use("/inputdb", inputdbRouter);
-
-const inputPrintRouter = require("./routes/input");
-app.use("/inputPrint", inputPrintRouter);
-
+app.use("/input", inputRouter);
 
 // QR router
 const qrRouter = require("./routes/QR");
-app.use("/", qrRouter);
-
-
-
-
-
+app.use("/QR", qrRouter);
 
 
 let port = process.env.PORT;
