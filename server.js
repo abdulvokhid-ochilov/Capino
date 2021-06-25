@@ -44,6 +44,10 @@ app.use("/input", inputRouter);
 const qrRouter = require("./routes/QR");
 app.use("/QR", qrRouter);
 
+//Guide 
+const guideRouter = require('./routes/guide');
+app.use('/guide', guideRouter);
+
 
 let port = process.env.PORT;
 if (port == null || port == "") {
