@@ -213,7 +213,10 @@ a{
   background-color: rgb(247, 215, 76);
   color: #000;
 }
-
+.select{
+  width: 90%;
+  height: 2rem;
+}
 /********* OUTPUT PAGE***********/
 .output-cont {
   width: 100%;
@@ -285,6 +288,9 @@ a{
   text-align: left;
   width: 7rem;
   height: 3rem;
+}
+.inp-bottom-table th{
+width: 14rem;
 }
 .inp-pro-info2 table{
   margin-top: 3rem;
@@ -600,8 +606,18 @@ a{
   background-color: #fff;
   border: var(--btn-blue) solid 1px;
 }
-/* .input-print-table1{
 
-} */
-
-/* OUTPUT PRINT PAGE */
+/* GUIDENCE PAGE */
+.guide-main{
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.guidence-hadding{
+  margin: 2rem 0 3rem 0;
+}
+.guidence{
+  font-size: 1.8rem;
+  height: 3rem;
+}

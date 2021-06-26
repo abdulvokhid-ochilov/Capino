@@ -19,7 +19,7 @@
                                     <th> 기사님 성함 </th>
                                     <td> <input type="text" placeholder="성함" name="성함"> </td>
                                     <th> 연락처 </th>
-                                    <td> <input type="text" placeholder="연락처" name="연락처"> </td>
+                                    <td> <input type="text" placeholder="- 없이 입력" name="연락처"> </td>
                                 </tr>
                                 <tr>
                                     <th> 차량번호</th>
@@ -43,7 +43,7 @@
                                     <th>선명/황자</th>
                                     <td><input type="text" name="황자"></td>
                                     <th>출항일자</th>
-                                    <td><input type="text" name="출항일자"></td>
+                                    <td><input type="date" name="출항일자"></td>
                                 </tr>
                                 <tr>
                                     <th>부킹넘버</th>
@@ -69,7 +69,11 @@
                                         <input type="text" name="화주명">
                                     </td>
                                     <td>
-                                        <input type="text" name="포장규격">
+                                        <select name="포장규격" class="select">
+                                            <option value="BOX">BOX</option>
+                                            <option value="PALLET">PALLET</option>
+                                            <option value="FABRIC">FABRIC</option>
+                                        </select>
                                     </td>
                                     <td>
                                         <input type="text" name="입고수량">
@@ -87,7 +91,11 @@
                                         <input type="text" name="화주명">
                                     </td>
                                     <td>
-                                        <input type="text" name="포장규격">
+                                        <select name="포장규격" class="select">
+                                            <option value="BOX">BOX</option>
+                                            <option value="PALLET">PALLET</option>
+                                            <option value="FABRIC">FABRIC</option>
+                                        </select>
                                     </td>
                                     <td>
                                         <input type="text" name="입고수량">
@@ -104,7 +112,11 @@
                                         <input type="text" name="화주명">
                                     </td>
                                     <td>
-                                        <input type="text" name="포장규격">
+                                        <select name="포장규격" class="select">
+                                            <option value="BOX">BOX</option>
+                                            <option value="PALLET">PALLET</option>
+                                            <option value="FABRIC">FABRIC</option>
+                                        </select>
                                     </td>
                                     <td>
                                         <input type="text" name="입고수량">
