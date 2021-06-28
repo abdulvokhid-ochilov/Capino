@@ -25,11 +25,11 @@ exports.getInput = (req, res) => {
 exports.postInput = async (req, res) => {
     try {
         const data = req.body;
+
         const newInputDB = await inputDB.create({
             _name: data.성함,
             _phoneNo: data.연락처,
-            _carNO: data.차량번호,
-
+            _carNo: data.차량번호,
             _forwarder: data.포워더,
             _bookingNo: data.부킹넘버,
             _signature: data.황자,

@@ -9,14 +9,15 @@ const convertToJpg = async function (url) {
     try {
         const buffer = Buffer.from(url.split(/,\s*/)[1], 'base64');
         const qr = await pngToJpeg({ quality: 90 })(buffer);
-        fs.writeFileSync(`${__dirname}/output-qr.jpeg`, qr);
+        const img = qr.toString('base64');
+        return img;
     } catch (err) {
-        console.error("hello");
+        console.error(err);
     }
 };
 // Data formating 
 const qrData = function (data) {
-    let text = `name: ${data.성함}\ncarNo:${data.차랑번호}\nphoneNo:${data.연락처}\ncompany: ${data.소속회사}`;
+    let text = `name: ${data.성함}\ncarNo:${data.차량번호}\nphoneNo:${data.연락처}`;
     let productNo = 0;
     data.화주명.forEach((el, i) => {
         if (el.length > 0) {
@@ -29,13 +30,13 @@ const qrData = function (data) {
 exports.getOutput = async (req, res) => {
     res.render("output/output");
 };
-let url = '';
+
 exports.postOutput = async (req, res) => {
     try {
         const data = req.body;
         const newOutputDB = await outputDB.create({
             _name: data.성함,
-            _carNo: data.차랑번호,
+            _carNo: data.차량번호,
             _phoneNo: data.연락처,
             _company: data.소속회사,
             _client: data.화주명,
@@ -44,11 +45,11 @@ exports.postOutput = async (req, res) => {
         });
         const str = qrData(data);
         url = await qr.toDataURL(str);
-        convertToJpg(url);
+        const img = await convertToJpg(url);
         if (req.body.sbm === "qr") {
             res.render("QR", { url: url, title: "출고용청서", check: "output" });
         } else if (req.body.sbm === "print") {
-            res.render('output/outputPrint', { data: data, date: 0, url: url });
+            res.render('output/outputPrint', { data: data, date: 0, url: img });
         } else {
             res.redirect("/output");
         }

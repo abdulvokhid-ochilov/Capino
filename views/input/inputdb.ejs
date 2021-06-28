@@ -1,77 +1,10 @@
-<!doctype html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="../print.css">
-</head>
-
-<body>
-    <section class="cfs-cont">
-        <%- include("../partials/nav") -%>
-            <main class="cfs-main">
-                <h1 class="page-heading">입고 조회</h1>
-                <form class="search" action="/input/inputdb" method="POST" autocomplete="off">
-                    <div class="search-cel">
-                        <label class="label" for="date">전송일자</label>
-                        <input id="date" name="from" type="text" placeholder="yyyy-mm-dd">
-                        <span style="margin: 0 0.8rem;"> ~ </span>
-                        <input id="date" name="to" type="text" placeholder="yyyy-mm-dd">
-                    </div>
-                    <div class="search-cel">
-                        <label class="label" for="name">성함</label>
-                        <input id="name" name="name" type="text " placeholder="성함">
-                    </div>
-                    <div class="search-cel">
-                        <label class="label" for="phoneNo">연락처</label>
-                        <input id="phoneNo" type="text" name="phoneNo" placeholder="연락처">
-                    </div>
-                    <div class="search-cel">
-                        <label class="label" for="carNo">차량번호</label>
-                        <input type="text" name="carNo" placeholder="차량번호">
-                    </div>
-                    <div class="search-cel">
-                        <button class="search-btn" name="search" value="search" type="submit"> 조회 </button>
-                        <button class="pritn-btn"> 출력하기</button>
-                    </div>
-                </form>
-                <div class="print-cont">
-                    <table class="data-t">
-                        <thead>
-                            <tr>
-                                <th>전송일자</th>
-                                <th>기사님 성함</th>
-                                <th>차량번호</th>
-                                <th>연락처</th>
-                                <th>소속회사</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% collections.forEach(data=> { %>
-                                <tr>
-                                    <td>
-                                        <%= data.date.toISOString().slice(0, 10) %>
-                                    </td>
-                                    <td>
-                                        <%= data._name %>
-                                    </td>
-                                    <td>
-                                        <%= data._carNo %>
-                                    </td>
-                                    <td>
-                                        <%= data._phoneNo %>
-                                    </td>
-                                    <td>
-                                        <%= data._company %>
-                                    </td>
-                                </tr>
-                                <% }); %>
-                        </tbody>
-                    </table>
-                </div>
-            </main>
-            <script src="../index.js"></script>
-</body>
-
-</html>
+<section class="cfs-cont">
+    <%- include("../partials/nav") -%>
+        <main class="cfs-main">
+            <h1 class="page-heading">입고 조회</h1>
+            <form action="/input/inputdb" class="search" method="POST">
+                <%- include("../partials/db-form") -%>
+            </form>
+            <%- include("../partials/db-table") -%>
+        </main>
+</section>

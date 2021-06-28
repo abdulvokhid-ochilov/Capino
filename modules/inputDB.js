@@ -6,7 +6,7 @@ const inputSchema = new mongoose.Schema({
     },
     _name: String,
     _phoneNo: String,
-    _carNO: String,
+    _carNo: String,
     _forwarder: String,
     _bookingNo: String,
     _signature: String,

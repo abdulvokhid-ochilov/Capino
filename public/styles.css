@@ -184,32 +184,29 @@ a{
 
 /********* OUT-INP-PAGE***********/
 .page-heading{
+  width: var(--main-width);
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin: 2rem 0;
 }
-.personal-info {
-  width: 100%;
-  height: 10rem;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+.top-table {
+  width: var(--main-width);
+  height: 7rem;
 }
-.tper-pro-info {
-  width: 100%;
-  }
-.tper-pro-info th {
+
+.top-table th {
   text-align: left;
   width: 7rem;
-  height: 3rem;
+  
 }
-.tper-pro-info input {
-  width: 83%;
+
+.top-table input {
+  width: 93%;
   height: 2rem;
   border: 1px solid #aaaaaa;
   padding-left: 1rem;
   font-size: 1rem;
 }
-.tout-inp-pro-info span{
+.bottom-table span{
   background-color: rgb(247, 215, 76);
   color: #000;
 }
@@ -218,51 +215,42 @@ a{
   height: 2rem;
 }
 /********* OUTPUT PAGE***********/
-.output-cont {
+.output-info {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.output-info {
-  height: 87%;
-  width: var(--main-width);
-  margin-top: 2rem;
+.bottom-table{
+margin-top: 3rem;
+height: auto;
+width: var(--main-width);
 }
-.output-product-info {
-  margin-top: 1rem;
-}
-.tout-inp-pro-info {
-  width: 100%;
-  height: auto;
-  margin-top: 3rem;
-}
-.tout-inp-pro-info th {
+
+.bottom-table th{
   text-align: left;
 
 }
-.tout-inp-pro-info th span {
+.bottom-table th span {
   display: inline-block;
   width: 90%;
   padding: 0.5rem;
   text-align: center;
 }
-.tout-inp-pro-info td {
+.bottom-table td {
   height: 3rem;
 }
-.tout-inp-pro-info input[type="text"] {
+.bottom-table input {
   width: 90%;
   height: 2rem;
   border: 1px solid #aaaaaa;
   padding-left: 1rem;
   font-size: 1rem;
 }
-.tout-inp-pro-info input[type="checkbox"]{
-  margin-right: 5px;
-}
+
 /********* INPUT PAGE***********/
-.input-cont {
+.input-info {
   position:relative;
   width: 100%;
   height: 100%;
@@ -270,56 +258,23 @@ a{
   flex-direction: column;
   align-items: center;
 }
-.input-info {
-  height: 75%;
-  width: var(--main-width);
+.middle-table{
   margin-top: 2rem;
 }
-.inp-pro-info1 {
-  width: 100%;
-  height: 35%;
-  margin-top: 1rem;
+.th-width{
+  width: 13.5rem;
 }
-.tinp-pro-info1 {
-  width: 100%;
-  margin-top: 1rem;
-}
-.tinp-pro-info1 th {
-  text-align: left;
-  width: 7rem;
-  height: 3rem;
-}
-.inp-bottom-table th{
-width: 14rem;
-}
-.inp-pro-info2 table{
-  margin-top: 3rem;
-  height: 35%;
-}
-.inp-footer {
-  height: 10%;
-}
-.input-cont form{
-  position: relative;
-}
-.input-cont form{
-  position: relative;
-}
-.submit-btn{
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.out-inp-div{
-  display: flex;
-  margin-top: 3rem;
+.td-width{
+  width: 13.3rem;
 }
 .plus-btn-cont{
-  width: 100%;
+  width: var(--main-width);
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
-.plus-btn{
+.plus-btn,
+.minus-btn
+{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -331,13 +286,58 @@ width: 14rem;
   border-radius: 100px;
   cursor: pointer;
 }
-
-.plus-btn:hover{
+.plus-btn{
+  margin-right: 22px;
+}
+.plus-btn:hover,
+.minus-btn:hover{
   color: #000;
   background-color: #fff;
   border: 1px solid rgb(148, 148, 148);
 }
-
+/************* FOOTER ***********/
+.footer{
+  margin-top: 1rem;
+  height: 8rem;
+  width: var(--main-width);
+}
+.footer-btns{
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-btns button{
+  box-sizing: content-box;
+  height: 2.5rem;
+  width: 5rem;
+  color: #fff;
+  padding: 5px 25px;
+  margin: 1rem;
+  font-size: 1rem;
+  border-radius: 100px;
+}
+.blue-btn{
+  color: #fff;
+  background-color: var(--btn-blue);
+  border: var(--btn-blue) solid 1px;
+}
+.blue-btn:hover{
+  color: var(--btn-blue);
+  background-color: #fff;
+  border: var(--btn-blue) solid 1px;
+}
+.grey-btn{
+  color: #fff;
+  background-color: rgb(148, 148, 148);
+  border: solid 1px rgb(148, 148, 148);
+}
+.grey-btn:hover{
+  color: #000;
+  background-color: #fff;
+  border: solid 1px rgb(148, 148, 148);
+}
 
 /*********  QR **********/
 .QR-body{
@@ -346,8 +346,6 @@ width: 14rem;
   justify-content: center;
   align-items: center;
 }
-
-
 .modal {
   position: relative;
   display: flex;
@@ -486,8 +484,6 @@ width: 14rem;
   border-radius: 100px;
   
 }
-
-
 .data-t{
   width: 80vw;
   margin-top: 2rem;
@@ -497,7 +493,6 @@ width: 14rem;
   height: 2.5rem;
   background-color: var(--btn-blue);
   color: #fff;
-
 }
 .data-t tr{
   height: 2.5rem;
@@ -509,49 +504,6 @@ width: 14rem;
   text-align: center;
 }
 
-/************* FOOTER ***********/
-.footer{
-  margin-top: 2rem;
-  height: 10rem;
-  width: var(--main-width);
-}
-.footer-btns{
-  width: 100%;
-  height: 5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.footer-btns button{
-  box-sizing: content-box;
-  height: 2.5rem;
-  width: 5rem;
-  color: #fff;
-  padding: 5px 25px;
-  margin: 1rem;
-  font-size: 1rem;
-  border-radius: 100px;
-}
-.blue-btn{
-  color: #fff;
-  background-color: var(--btn-blue);
-  border: var(--btn-blue) solid 1px;
-}
-.blue-btn:hover{
-  color: var(--btn-blue);
-  background-color: #fff;
-  border: var(--btn-blue) solid 1px;
-}
-.grey-btn{
-  color: #fff;
-  background-color: rgb(148, 148, 148);
-  border: solid 1px rgb(148, 148, 148);
-}
-.grey-btn:hover{
-  color: #000;
-  background-color: #fff;
-  border: solid 1px rgb(148, 148, 148);
-}
 /* media query */
 @media (max-width: 1660px) {
   .label{

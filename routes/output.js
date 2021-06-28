@@ -13,7 +13,7 @@ router
 
 router
     .route('/outputdb')
-    .get(dbControllers.todayDB)
+    .get(dbControllers.getTodayDB)
     .post(dbControllers.getDB);
 
 module.exports = router;

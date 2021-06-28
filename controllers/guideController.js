@@ -1,4 +1,3 @@
-
 exports.getGuide = async (req, res) => {
     try {
         res.render('guide');
