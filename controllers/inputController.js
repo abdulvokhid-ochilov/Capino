@@ -3,6 +3,8 @@ const fs = require('fs');
 const pngToJpeg = require('png-to-jpeg');
 const inputDB = require("./../modules/inputDB");
 
+
+//Generate random key
 const randomKey = () => {
     const randomNum = Math.floor(Math.random() * 100 + 1);
     const now = Date.now();
@@ -16,6 +18,7 @@ const convertToJpg = async function (url) {
         const buffer = Buffer.from(url.split(/,\s*/)[1], 'base64');
         const qr = await pngToJpeg({ quality: 90 })(buffer);
         fs.writeFileSync(`${__dirname}/${imgPath}.jpeg`, qr);
+        return imgPath;
     } catch (err) {
         console.error(err);
     }
@@ -47,12 +50,20 @@ exports.postInput = async (req, res) => {
             _weight: data.중량
         });
         const str = `name: ${data.성함}\ncarNo:${data.차량번호}\nphoneNo:${data.연락처}\nforwarder:${data.포워더} \nbookingNo:${data.부킹넘버}`;
+
         const url = await qr.toDataURL(str);
-        convertToJpg(url);
+
+        const imgPath = await convertToJpg(url);
         if (req.body.sbm === "qr") {
-            res.render("QR", { url: url, title: "입고용청서", check: "input" });
+            res.render("QR",
+                {
+                    url: url, title: "입고용청서", imgPath: imgPath
+                });
         } else if (req.body.sbm === "print") {
-            res.render("input/inputPrint", { date: 0, data: data, url: url });
+            res.render("input/inputPrint",
+                {
+                    date: 0, data: data, url: url
+                });
         } else {
             res.redirect('/input');
         }

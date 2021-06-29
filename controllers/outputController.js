@@ -15,7 +15,6 @@ const randomKey = () => {
 const convertToJpg = async function (url) {
     try {
         const imgPath = randomKey();
-        console.log(imgPath);
         const buffer = Buffer.from(url.split(/,\s*/)[1], 'base64');
         const qr = await pngToJpeg({ quality: 90 })(buffer);
         fs.writeFileSync(`${__dirname}/${imgPath}.jpeg`, qr);
@@ -57,9 +56,10 @@ exports.postOutput = async (req, res) => {
         const url = await qr.toDataURL(str);
         const imgPath = await convertToJpg(url);
         if (req.body.sbm === "qr") {
-            res.render("QR", {
-                url: url, title: "출고용청서", imgPath: imgPath
-            });
+            res.render("QR",
+                {
+                    url: url, title: "출고용청서", imgPath: imgPath
+                });
         } else if (req.body.sbm === "print") {
             res.render('output/outputPrint', {
                 data: data, date: 0, url: url,
