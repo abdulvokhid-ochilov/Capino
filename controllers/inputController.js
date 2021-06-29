@@ -3,14 +3,19 @@ const fs = require('fs');
 const pngToJpeg = require('png-to-jpeg');
 const inputDB = require("./../modules/inputDB");
 
-
+const randomKey = () => {
+    const randomNum = Math.floor(Math.random() * 100 + 1);
+    const now = Date.now();
+    return `${randomNum}${now}`;
+};
 
 //create jpeg file
 const convertToJpg = async function (url) {
     try {
+        const imgPath = randomKey();
         const buffer = Buffer.from(url.split(/,\s*/)[1], 'base64');
         const qr = await pngToJpeg({ quality: 90 })(buffer);
-        fs.writeFileSync(`${__dirname}/input-qr.jpeg`, qr);
+        fs.writeFileSync(`${__dirname}/${imgPath}.jpeg`, qr);
     } catch (err) {
         console.error(err);
     }

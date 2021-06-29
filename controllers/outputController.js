@@ -4,13 +4,22 @@ const pngToJpeg = require('png-to-jpeg');
 const fs = require('fs');
 
 
+//Random Key Generator
+const randomKey = () => {
+    const randomNum = Math.floor(Math.random() * 100 + 1);
+    const now = Date.now();
+    return `${randomNum}${now}`;
+};
+
 //generate jpeg file
 const convertToJpg = async function (url) {
     try {
+        const imgPath = randomKey();
+        console.log(imgPath);
         const buffer = Buffer.from(url.split(/,\s*/)[1], 'base64');
         const qr = await pngToJpeg({ quality: 90 })(buffer);
-        const img = qr.toString('base64');
-        return img;
+        fs.writeFileSync(`${__dirname}/${imgPath}.jpeg`, qr);
+        return imgPath;
     } catch (err) {
         console.error(err);
     }
@@ -27,6 +36,7 @@ const qrData = function (data) {
     });
     return text;
 };
+
 exports.getOutput = async (req, res) => {
     res.render("output/output");
 };
@@ -44,12 +54,16 @@ exports.postOutput = async (req, res) => {
             _quantity: data.출고수량
         });
         const str = qrData(data);
-        url = await qr.toDataURL(str);
-        const img = await convertToJpg(url);
+        const url = await qr.toDataURL(str);
+        const imgPath = await convertToJpg(url);
         if (req.body.sbm === "qr") {
-            res.render("QR", { url: url, title: "출고용청서", check: "output" });
+            res.render("QR", {
+                url: url, title: "출고용청서", imgPath: imgPath
+            });
         } else if (req.body.sbm === "print") {
-            res.render('output/outputPrint', { data: data, date: 0, url: img });
+            res.render('output/outputPrint', {
+                data: data, date: 0, url: url,
+            });
         } else {
             res.redirect("/output");
         }
