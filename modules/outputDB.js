@@ -4,6 +4,8 @@ const outputSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
+    imgUrl: String,
+    randomKey: String,
     _name: String,
     _carNo: String,
     _phoneNo: String,

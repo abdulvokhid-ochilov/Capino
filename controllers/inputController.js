@@ -33,8 +33,15 @@ exports.getInput = (req, res) => {
 exports.postInput = async (req, res) => {
     try {
         const data = req.body;
+        //generate qrcode 
+        const str = `name: ${data.성함}\ncarNo:${data.차량번호}\nphoneNo:${data.연락처}\nforwarder:${data.포워더} \nbookingNo:${data.부킹넘버}`;
+        const url = await qr.toDataURL(str);
+        const imgPath = await convertToJpg(url);
+
 
         const newInputDB = await inputDB.create({
+            imgUrl: url,
+            randomKey: imgPath,
             _name: data.성함,
             _phoneNo: data.연락처,
             _carNo: data.차량번호,
@@ -49,11 +56,7 @@ exports.postInput = async (req, res) => {
             _volume: data.용적,
             _weight: data.중량
         });
-        const str = `name: ${data.성함}\ncarNo:${data.차량번호}\nphoneNo:${data.연락처}\nforwarder:${data.포워더} \nbookingNo:${data.부킹넘버}`;
 
-        const url = await qr.toDataURL(str);
-
-        const imgPath = await convertToJpg(url);
         if (req.body.sbm === "qr") {
             res.render("QR",
                 {

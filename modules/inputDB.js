@@ -1,9 +1,12 @@
+const { urlencoded } = require("body-parser");
 const mongoose = require("mongoose");
 const inputSchema = new mongoose.Schema({
     date: {
         type: Date,
         default: Date.now
     },
+    imgUrl: String,
+    randomKey: String,
     _name: String,
     _phoneNo: String,
     _carNo: String,

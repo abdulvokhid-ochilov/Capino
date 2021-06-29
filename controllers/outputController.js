@@ -43,7 +43,16 @@ exports.getOutput = async (req, res) => {
 exports.postOutput = async (req, res) => {
     try {
         const data = req.body;
+
+        //generate qrcode 
+        const str = qrData(data);
+        const url = await qr.toDataURL(str);
+        const imgPath = await convertToJpg(url);
+
+
         const newOutputDB = await outputDB.create({
+            imgUrl: url,
+            randomKey: imgPath,
             _name: data.성함,
             _carNo: data.차량번호,
             _phoneNo: data.연락처,
@@ -52,9 +61,9 @@ exports.postOutput = async (req, res) => {
             _BL: data.비엘,
             _quantity: data.출고수량
         });
-        const str = qrData(data);
-        const url = await qr.toDataURL(str);
-        const imgPath = await convertToJpg(url);
+
+
+
         if (req.body.sbm === "qr") {
             res.render("QR",
                 {
