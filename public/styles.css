@@ -573,3 +573,6 @@ width: var(--main-width);
   font-size: 1.8rem;
   height: 3rem;
 }
+.simple-page{
+  color: #000;
+}

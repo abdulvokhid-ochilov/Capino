@@ -7,5 +7,4 @@ router
     .get(controllers.getGuide);
 
 
-
 module.exports = router;

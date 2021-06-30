@@ -37,4 +37,9 @@ app.use("/QR", qrRouter);
 const guideRouter = require('./routes/guide');
 app.use('/guide', guideRouter);
 
+//SIMPLE PAGE
+app.get('/simple-page', (req, res) => {
+    res.render('simple-page');
+});
+
 module.exports = app;
