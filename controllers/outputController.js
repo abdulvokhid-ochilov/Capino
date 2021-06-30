@@ -8,7 +8,7 @@ const fs = require('fs');
 const randomKey = () => {
     const randomNum = Math.floor(Math.random() * 100 + 1);
     const now = Date.now();
-    return `${randomNum}${now}`;
+    return `${now}${randomNum}`;
 };
 
 //generate jpeg file
@@ -53,13 +53,13 @@ exports.postOutput = async (req, res) => {
         const newOutputDB = await outputDB.create({
             imgUrl: url,
             randomKey: imgPath,
-            _name: data.성함,
-            _carNo: data.차량번호,
-            _phoneNo: data.연락처,
-            _company: data.소속회사,
-            _client: data.화주명,
-            _BL: data.비엘,
-            _quantity: data.출고수량
+            성함: data.성함,
+            차량번호: data.차량번호,
+            연락처: data.연락처,
+            전체수량: data.전체수량,
+            화주명: data.화주명,
+            비엘: data.비엘,
+            출고수량: data.출고수량
         });
 
 

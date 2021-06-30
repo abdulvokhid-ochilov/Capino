@@ -28,7 +28,7 @@ const send = async function (phone, title, imgPath) {
                     from: '01087128235',
                     subject: 'MMS 제목',
                     imageId: fileId,
-                    text: `${title}`
+                    text: `${title}\nnumber:${imgPath}`
                 }
             ]
         });

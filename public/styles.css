@@ -449,19 +449,24 @@ width: var(--main-width);
 }
 .cfs-main{
   margin-top: 2rem;
-  width: 80vw;
-  height: 80vh;
+  width: 1200px;
+  height: auto;
 }
 
 .search{
-  width: 100%;
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.search-cont{
+  width: 1200px;
   height: 3rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 }
-
 .search-cel input{
   width: 10rem;
   height: 2rem;
@@ -474,7 +479,10 @@ width: var(--main-width);
   background-color: var(--btn-blue);
   color: #fff;
   border-radius: 100px;
-  margin: 2rem;
+  margin-left: 2rem;
+}
+.find-btn{
+  background-color: rgb(184, 184, 184);
 }
 .pritn-btn{
   width: 6rem;
@@ -485,7 +493,7 @@ width: var(--main-width);
   
 }
 .data-t{
-  width: 80vw;
+  width: 1200px;
   margin-top: 2rem;
   border-collapse:collapse
 }
@@ -510,7 +518,19 @@ width: var(--main-width);
     display: none;
   }
 }
-
+/********* SINGLE-DB PAGE***********/
+.single-db-page{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4rem;
+}
+.single-db-bottom-table{
+  width: var(--main-width);
+  margin-bottom: 2rem;
+}
 /* INPUT PRINT PAGE */
 .input-print-body, .output-print-body{
   height: auto;

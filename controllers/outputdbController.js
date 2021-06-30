@@ -23,30 +23,38 @@ exports.getTodayDB = async (req, res) => {
 };
 exports.getDB = async (req, res) => {
     try {
+
         let start = req.body.from ? new Date(Date.parse(`${req.body.from} 00:00:00 GMT`)) : new Date('May 29, 2021 00:00:00');
 
-        let end = req.body.to ? new Date(Date.parse(`${req.body.to} 23:59:59 GMT`)) : new Date(`${today.getMonth() + 1}, ${today.getDate()}, ${today.getFullYear()} 23:59:59 GMT`);
+        let end = req.body.to ? new Date(Date.parse(`${req.body.to} 23:59:59 GMT`)) : new Date(`${today.getMonth() + 1}, ${today.getDate()}, ${today.
+            getFullYear()} 23:59:59 GMT`);
+
         const clientName = req.body.name || /\w*/gi;
+        const randomKey = req.body.randomKey || /\w*/gi;
         const phoneNo = req.body.phoneNo || /\w*/gi;
-        const carNo = req.body.carNo || /\w*/gi;
+
         if (req.body.search === "search") {
             let db = await outputDB.find({
                 date: {
                     $gte: start,
                     $lte: end
                 },
-                _name: clientName,
-                _phoneNo: phoneNo,
-                _carNo: carNo
+                성함: clientName,
+                randomKey: randomKey,
+                연락처: phoneNo
             }).exec();
             db = db.sort((a, b) => {
                 return a.date - b.date;
             });
+
             res.render("output/outputdb", { collections: db });
+        } else if (req.body.find) {
+            let db = await outputDB.find({
+                randomKey: req.body.find
+            }).exec();
+            res.render("output/output-user-data", { collections: db });
         }
     } catch (err) {
         console.log(err);
     }
-
-
 };

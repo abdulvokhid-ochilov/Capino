@@ -6,7 +6,7 @@
                 <th>기사님 성함</th>
                 <th>차량번호</th>
                 <th>연락처</th>
-
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -16,15 +16,18 @@
                         <%= data.date.toISOString().slice(0, 10) %>
                     </td>
                     <td>
-                        <%= data._name %>
+                        <%= data.성함 %>
                     </td>
                     <td>
-                        <%= data._carNo %>
+                        <%= data.차량번호 %>
                     </td>
                     <td>
-                        <%= data._phoneNo %>
+                        <%= data.연락처 %>
                     </td>
-
+                    <td>
+                        <button class="search-btn find-btn" name="find" value=<%=data.randomKey %> type="submit"> 보기
+                        </button>
+                    </td>
                 </tr>
                 <% }); %>
         </tbody>

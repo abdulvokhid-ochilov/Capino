@@ -1,0 +1,67 @@
+<main class="single-db-page">
+    <div class="print-cont">
+        <h1 class="page-heading">
+            <%= collections[0].randomKey %>
+        </h1>
+        <table class="top-table">
+            <tbody>
+                <tr>
+                    <th> 기사님 성함</th>
+                    <td>
+                        <%= collections[0].성함 %>
+                    </td>
+                    <td rowspan="3">
+                        <img src=<%=collections[0].imgUrl %> alt="qr">
+                    </td>
+                </tr>
+                <tr>
+                    <th> 연락처 </th>
+                    <td>
+                        <%= collections[0].연락처%>
+                    </td>
+                </tr>
+                <tr>
+                    <th> 차랑번호</th>
+                    <td>
+                        <%= collections[0].차량번호 %>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="data-t single-db-bottom-table">
+            <thead>
+                <tr class="">
+                    <th></th>
+                    <th> B/L NO. (비엘 번호)</th>
+                    <th> 화주명(상호)</th>
+                    <th> 전체수량</th>
+                    <th> 출고수량</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%collections[0].화주명.forEach((data, i)=>{%>
+                    <tr>
+                        <td>
+                            <%= i++ %>
+                        </td>
+                        <td>
+                            <%= collections[0].비엘[i] %>
+                        </td>
+                        <td>
+                            <%= data %>
+                        </td>
+                        <td>
+                            <%= collections[0].전체수량[i] %>
+                        </td>
+                        <td>
+                            <%= collections[0].출고수량[i] %>
+                        </td>
+
+                    </tr>
+                    <%}) %>
+            </tbody>
+        </table>
+    </div>
+    <button class="pritn-btn"> 출력하기</button>
+
+</main>

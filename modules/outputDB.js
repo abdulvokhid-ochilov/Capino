@@ -6,12 +6,12 @@ const outputSchema = new mongoose.Schema({
     },
     imgUrl: String,
     randomKey: String,
-    _name: String,
-    _carNo: String,
-    _phoneNo: String,
-    _company: String,
-    _client: Array,
-    _BL: Array,
-    _quantity: Array
+    성함: String,
+    차량번호: String,
+    연락처: String,
+    전체수량: Array,
+    화주명: Array,
+    비엘: Array,
+    출고수량: Array
 });
 module.exports = mongoose.model('Output', outputSchema);
