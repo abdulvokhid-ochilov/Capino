@@ -2,8 +2,8 @@ const path = require('path');
 const fs = require('fs');
 const { msg, config } = require('coolsms-node-sdk');
 config.init({
-    apiKey: 'NCSCH0HI34MWQBIP',
-    apiSecret: 'DILRAMBB9IT7CJIGYCETLSUKNBYNHY7Q'
+    apiKey: process.env.APIKEY,
+    apiSecret: process.env.APISECRET
 });
 
 
@@ -26,9 +26,9 @@ const send = async function (phone, title, imgPath) {
                 {
                     to: `${phone}`,
                     from: '01087128235',
-                    subject: 'MMS 제목',
+                    subject: `${title}`,
                     imageId: fileId,
-                    text: `${title}`
+                    text: `number:${imgPath}`
                 }
             ]
         });

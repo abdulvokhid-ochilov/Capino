@@ -1,12 +1,12 @@
-const mongoose = require("mongoose");
 const dotenv = require('dotenv');
 dotenv.config({ path: './config.env' });
+const mongoose = require("mongoose");
 const app = require('./app');
 
 
 //mongoose
 
-mongoose.connect('mongodb+srv://admin-asliddin:AB17071998@@cluster0.yktos.mongodb.net/CapinoDB',
+mongoose.connect(process.env.DATABASE_URL,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
