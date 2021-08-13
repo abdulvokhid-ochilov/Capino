@@ -1,10 +1,10 @@
 const outputDB = require('./../modules/outputDB');
 
 const today = new Date();
+
 const getDate = function () {
     return new Date(today.getFullYear(), today.getMonth(), today.getDate());
 };
-
 exports.getTodayDB = async (req, res) => {
     try {
         let db = await outputDB.find({
