@@ -30,7 +30,7 @@ exports.getDB = async (req, res) => {
         const phoneNo = req.body.phoneNo || /\w*/gi;
         const carNo = req.body.carNo || /\w*/gi;
         if (req.body.search === "search") {
-            console.log(start, end);
+            
             let db = await inputDB.find({
                 date: {
                     $gte: start,

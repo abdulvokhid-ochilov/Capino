@@ -90,6 +90,8 @@ a{
   background-color: #000;
   margin-top: 1rem;
 }
+
+
 /********* MAIN PAGE***********/
 .main-page {
   max-width: 100vw;
@@ -512,16 +514,15 @@ width: var(--main-width);
 }
 
 /* INPUT PRINT PAGE */
-.input-print-body, .output-print-body{
+.output-print,
+.input-print{
   height: auto;
   width: 100vw;
   position:relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
-
 .input-print-container1, 
 .input-print-container2,
 .output-print-container1,
