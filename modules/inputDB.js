@@ -1,24 +1,24 @@
 const { urlencoded } = require("body-parser");
 const mongoose = require("mongoose");
 const inputSchema = new mongoose.Schema({
-    date: {
-        type: Date,
-        default: Date.now
-    },
-    imgUrl: String,
-    randomKey: String,
-    _name: String,
-    _phoneNo: String,
-    _carNo: String,
-    _forwarder: String,
-    _bookingNo: String,
-    _signature: String,
-    _destinationPort: String,
-    _departureDate: String,
-    _cargo: Array,
-    _packaging: Array,
-    _quantity: Array,
-    _volume: Array,
-    _weight: Array
+  date: {
+    type: Date,
+    default: Date.now,
+  },
+  imgUrl: String,
+  randomKey: String,
+  name: String,
+  contact: String,
+  car_number: String,
+  forwarder: String,
+  bookingNo: String,
+  signature: String,
+  destinationPort: String,
+  departureDate: String,
+  cargo: Array,
+  packaging: Array,
+  quantity: Array,
+  volume: Array,
+  weight: Array,
 });
-module.exports = mongoose.model('Input', inputSchema);
+module.exports = mongoose.model("Input", inputSchema);
