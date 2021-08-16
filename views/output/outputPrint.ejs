@@ -1,25 +1,46 @@
-<div class="output-print-container1">
-  <div class="output-print-heading">
-    <img src="<%=url %>" alt="qr" />
-    <h1>CFS 화물 출고증(0117)</h1>
+<div class="output-print-body">
+  <div class="output-print-container">
+    <div class="output-print-heading">
+      <img class="print-page_qr" src="<%=url %>" alt="qr" />
+      <h1>CFS 화물 출고증(0117)</h1>
+      <table>
+        <tbody>
+          <tr>
+            <td rowspan="2">화물구분</td>
+            <td>창고위치 ( CFS2 )</td>
+          </tr>
+          <tr>
+            <td>창고위치 ( A162 )</td>
+          </tr>
+          <tr>
+            <td>용적</td>
+            <td>8.4</td>
+          </tr>
+          <tr>
+            <td>도착항</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>[보관용]</p>
+    <%- include("../partials/outputPrintPart") -%>
   </div>
-  <p>[보관용]</p>
-  <%- include("../partials/outputPrintPart") -%>
-</div>
-<div class="output-print-container2">
-  <div class="output-print-heading">
-    <img src="<%=url %>" alt="qr" />
-    <h1>CFS 화물 출고증(0117)</h1>
+  <div class="output-print-container">
+    <div class="output-print-heading">
+      <img class="print-page_qr" src="<%=url %>" alt="qr" />
+      <h1>CFS 화물 출고증(0117)</h1>
+    </div>
+    <p>[검수용]</p>
+    <%- include("../partials/outputPrintPart") -%>
   </div>
-  <p>[검수용]</p>
-  <%- include("../partials/outputPrintPart") -%>
-</div>
-<div class="output-print-container3">
-  <div class="output-print-heading">
-    <img src="<%=url %>" alt="qr" />
-    <h1>CFS 화물 출고증(0117)</h1>
+  <div class="output-print-container">
+    <div class="output-print-heading">
+      <img class="print-page_qr" src="<%=url %>" alt="qr" />
+      <h1>CFS 화물 출고증(0117)</h1>
+    </div>
+    <p>[차량용]</p>
+    <%- include("../partials/outputPrintPart") -%>
   </div>
-  <p>[차량용]</p>
-  <%- include("../partials/outputPrintPart") -%>
+  <button class="input-print-btn" onclick="window.print()">출고증인쇄</button>
 </div>
-<button class="input-print-btn" onclick="window.print()">출고증인쇄</button>

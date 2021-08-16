@@ -21,7 +21,7 @@ const convertToJpg = async function (url) {
     const imgPath = randomKey();
     const buffer = Buffer.from(url.split(/,\s*/)[1], "base64");
     const qr = await pngToJpeg({ quality: 90 })(buffer);
-    fs.writeFileSync(`${__dirname}/${imgPath}.jpeg`, qr);
+    // fs.writeFileSync(`${__dirname}/${imgPath}.jpeg`, qr);
     return imgPath;
   } catch (err) {
     console.error(err);
@@ -71,7 +71,7 @@ exports.postOutput = async (req, res) => {
     } else if (req.body.sbm === "print") {
       res.render("output/outputPrint", {
         data: data,
-        date: 0,
+        date: new Date(),
         url: url,
       });
     } else {

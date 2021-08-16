@@ -13,7 +13,9 @@
   <tbody>
     <% data.client.forEach((el, i)=>{ %>
     <tr>
-      <td><%= date %></td>
+      <td>
+        <%= date.getFullYear()%>.<%=date.getMonth() +1 %>.<%= date.getDate()%>
+      </td>
       <td></td>
       <td><%= el %></td>
       <td><%=data.bl_number[i]%></td>
@@ -22,21 +24,28 @@
       <td></td>
     </tr>
     <% }) %>
-  </tbody>
-</table>
-<table>
-  <tbody>
     <tr>
       <td>관세사</td>
-      <td></td>
+      <td colspan="3"></td>
+      <td colspan="3" rowspan="2"></td>
     </tr>
     <tr>
       <td>차랑번호</td>
-      <td><%=data.car_number%></td>
+      <td colspan="3"><%=data.car_number%></td>
     </tr>
     <tr>
       <td>기사연락처</td>
-      <td><%=data.contact%></td>
+      <td colspan="3"><%=data.contact%></td>
+      <td>담당자</td>
+      <td>지게차기사</td>
+      <td>작업자</td>
+    </tr>
+    <tr>
+      <td>인수(인계)자</td>
+      <td colspan="3">염혜정</td>
+      <td>김재범</td>
+      <td></td>
+      <td></td>
     </tr>
   </tbody>
 </table>
