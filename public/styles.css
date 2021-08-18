@@ -495,7 +495,23 @@ a {
   width: 20%;
   text-align: center;
 }
-
+/* GUIDENCE PAGE */
+.guide-main {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.guidence-hadding {
+  margin: 2rem 0 3rem 0;
+}
+.guidence {
+  font-size: 1.8rem;
+  height: 3rem;
+}
+.simple-page {
+  color: #000;
+}
 /* media query */
 @media (max-width: 1660px) {
   .label {
@@ -523,7 +539,7 @@ a {
 }
 .ouput-print-table tr td,
 .ouput-print-table th {
-  border: 1px solid #333;
+  border: 1px solid #000;
 }
 .ouput-print-table {
   border-collapse: collapse;
@@ -533,17 +549,17 @@ a {
 .input-print-body,
 .output-print-body {
   height: auto;
-  width: 100vw;
+  width: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.input-print-container1,
-.input-print-container2,
+.input-print-container,
 .output-print-container {
-  width: 210mm;
+  line-height: 1.8rem;
+  width: 230mm;
   display: flex;
   flex-direction: column;
   margin: 2rem 0;
@@ -551,12 +567,55 @@ a {
 .input-print-heading {
   display: flex;
   align-items: center;
+  margin-bottom: 1rem;
 }
 .input-print-heading p {
   font-weight: 600;
   margin-right: 3rem;
 }
-.input-print-btn {
+.table_img-container {
+  display: flex;
+  margin-top: 1rem;
+  height: 200px;
+}
+.input-print-table {
+  width: 700px;
+  border-collapse: collapse;
+}
+.input-print-table td,
+.input-print-table th {
+  text-align: center;
+  border: 1px #000 solid;
+}
+
+.input-print-image img {
+  width: 300px;
+  height: 200px;
+}
+.input-print-signing {
+  margin-top: 1rem;
+}
+.input-print-signing p {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-print-middle {
+  width: 230mm;
+  border: 1px #000 solid;
+}
+.input-print-middle_text {
+  width: 100%;
+  text-align: center;
+  font-size: 8rem;
+  font-weight: 600;
+}
+.print-btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.print-btn {
   box-sizing: content-box;
   height: 2.5rem;
   width: 5rem;
@@ -569,26 +628,8 @@ a {
   background-color: var(--btn-blue);
   border: var(--btn-blue) solid 1px;
 }
-.input-print-btn:hover {
+.print-btn:hover {
   color: var(--btn-blue);
   background-color: #fff;
   border: var(--btn-blue) solid 1px;
-}
-
-/* GUIDENCE PAGE */
-.guide-main {
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.guidence-hadding {
-  margin: 2rem 0 3rem 0;
-}
-.guidence {
-  font-size: 1.8rem;
-  height: 3rem;
-}
-.simple-page {
-  color: #000;
 }

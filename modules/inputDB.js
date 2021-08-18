@@ -15,7 +15,7 @@ const inputSchema = new mongoose.Schema({
   signature: String,
   destinationPort: String,
   departureDate: String,
-  cargo: Array,
+  shipper: Array,
   packaging: Array,
   quantity: Array,
   volume: Array,

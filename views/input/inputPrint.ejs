@@ -1,21 +1,30 @@
-<div class="input-print-container1">
+<div class="input-print-body">
+  <div class="input-print-container">
     <div class="input-print-heading">
-        <p>[보관용]</p>
-        <h1> CFS 화물 입고증(<%= date%>-0014 )</h1>
+      <p>[보관용]</p>
+      <h1>
+        CFS 화물 입고증(<%= date.getFullYear()%><%=
+        date.getMonth().toString().padStart(2,0)%><%= date.getDate()%>-0014 )
+      </h1>
     </div>
-    <%- include("../partials/inputPrintPart") -%>
-</div>
-<div class="input-print-middle">
-    <p class="input-print-text">
-        승명
-    </p>
-    <img src=<%=url %> alt="qr">
-</div>
-<div class="input-print-container2">
+    <%- include("./input-partials/inputPrintPart") -%>
+  </div>
+  <div class="input-print-middle">
+    <p class="input-print-middle_text">원신한무역</p>
+    <img src="<%=url %>" alt="qr" />
+  </div>
+  <div class="input-print-container">
     <div class="input-print-heading">
-        <p>[차량용]</p>
-        <h1> CFS 화물 입고증(<%= date%>-0014 )</h1>
+      <p>[차량용]</p>
+      <h1>
+        CFS 화물 입고증(<%= date.getFullYear()%><%= date.getMonth()%><%=
+        date.getDate()%>-0014 )
+      </h1>
     </div>
-    <%- include("../partials/inputPrintPart") -%>
+    <%- include("./input-partials/inputPrintPart") -%>
+  </div>
 </div>
-<button class="input-print-btn" onclick="window.print()"> 출고증인쇄</button>
+
+<div class="print-btn-container">
+  <button class="print-btn" onclick="window.print()">출고증인쇄</button>
+</div>

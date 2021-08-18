@@ -16,7 +16,7 @@ const convertToJpg = async function (url) {
     const imgPath = randomKey();
     const buffer = Buffer.from(url.split(/,\s*/)[1], "base64");
     const qr = await pngToJpeg({ quality: 90 })(buffer);
-    fs.writeFileSync(`${__dirname}/${imgPath}.jpeg`, qr);
+    // fs.writeFileSync(`${__dirname}/${imgPath}.jpeg`, qr);
     return imgPath;
   } catch (err) {
     console.error(err);
@@ -43,16 +43,16 @@ exports.postInput = async (req, res) => {
       name: data.name,
       contact: data.contact,
       car_number: data.car_number,
-      forwarder: data.포워더,
-      bookingNo: data.부킹넘버,
-      signature: data.황자,
-      destinationPort: data.도착항,
-      departureDate: data.출항일자,
-      cargo: data.화주명,
-      packaging: data.포장규격,
-      quantity: data.입고수량,
-      volume: data.용적,
-      weight: data.중량,
+      forwarder: data.forwarder,
+      bookingNo: data.booking_number,
+      signature: data.signature,
+      destinationPort: data.destination_port,
+      departureDate: data.departure_date,
+      shipper: data.shipper,
+      packaging: data.packiging,
+      quantity: data.quantity,
+      volume: data.volume,
+      weight: data.weight,
     });
 
     if (req.body.sbm === "qr") {
@@ -63,7 +63,7 @@ exports.postInput = async (req, res) => {
       });
     } else if (req.body.sbm === "print") {
       res.render("input/inputPrint", {
-        date: 0,
+        date: new Date(),
         data: data,
         url: url,
       });
