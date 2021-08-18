@@ -11,11 +11,13 @@ const outputdbLink = document.querySelector(".outputdb-link");
 const inputdbLink = document.querySelector(".inputdb-link");
 const guideLink = document.querySelector(".guide-link");
 const navLink = document.querySelectorAll(".nav-link");
-const h1 = document.querySelector(".page-heading").textContent;
-const printBtn = document.querySelector(".pritn-btn");
-
+const h1 = document.querySelector(".page-heading")
+  ? document.querySelector(".page-heading").textContent
+  : "";
+const printBtn = document.querySelector(".print-btn");
+console.log(printBtn);
 if (printBtn) {
-  const printArea = document.querySelector(".print-cont").innerHTML;
+  const printArea = document.querySelector(".print-container").innerHTML;
   const originalContents = document.body.innerHTML;
 
   // print button functionality

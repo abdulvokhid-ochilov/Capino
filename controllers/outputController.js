@@ -44,7 +44,6 @@ const qrData = function (data) {
 exports.postOutput = async (req, res) => {
   try {
     const data = req.body;
-
     //generate qrcode
     const str = qrData(data);
     const url = await qr.toDataURL(str);
@@ -79,6 +78,6 @@ exports.postOutput = async (req, res) => {
     }
   } catch (err) {
     console.log(err);
-    // res.status(400).send(err);
+    res.status(400).send(err);
   }
 };

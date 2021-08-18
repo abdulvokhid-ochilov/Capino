@@ -1,4 +1,4 @@
-/* print page  */
+/* print page 
 @page {
   size: A4;
   margin: 3rem 0;
@@ -10,5 +10,5 @@
     display: flex;
     justify-content: center;
   }
-  /* ... the rest of the rules ... */
-}
+
+} */

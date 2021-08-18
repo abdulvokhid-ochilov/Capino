@@ -1,4 +1,4 @@
-<div class="input-print-body">
+<div class="print-container">
   <div class="input-print-container">
     <div class="input-print-heading">
       <p>[보관용]</p>
@@ -11,7 +11,9 @@
   </div>
   <div class="input-print-middle">
     <p class="input-print-middle_text">원신한무역</p>
-    <img src="<%=url %>" alt="qr" />
+    <div class="input-print-middle_inner">
+      <img class="input-print-middle_img" src="<%=url %>" alt="qr" />
+    </div>
   </div>
   <div class="input-print-container">
     <div class="input-print-heading">
@@ -26,5 +28,5 @@
 </div>
 
 <div class="print-btn-container">
-  <button class="print-btn" onclick="window.print()">출고증인쇄</button>
+  <button class="print-btn">출고증인쇄</button>
 </div>

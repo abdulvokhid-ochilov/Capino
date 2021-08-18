@@ -36,7 +36,6 @@ exports.postInput = async (req, res) => {
     const str = `name: ${data.성함}\ncarNo:${data.차량번호}\nphoneNo:${data.연락처}\nforwarder:${data.포워더} \nbookingNo:${data.부킹넘버}`;
     const url = await qr.toDataURL(str);
     const imgPath = await convertToJpg(url);
-
     const newInputDB = await inputDB.create({
       imgUrl: url,
       randomKey: imgPath,
