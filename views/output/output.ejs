@@ -1,68 +1,66 @@
 <%- include("../partials/nav") -%>
-    <main class="output-info">
-        <h1 class="page-heading">출고 요청서</h1>
-        <form action="/output" method="POST" autocomplete="off">
-            <%- include("../partials/top-table") -%>
-                <table class="bottom-table out-bottom-table">
-                    <thead>
-                        <tr>
-                            <th> <span> B/L NO. (비엘 번호)</span></th>
-                            <th><span>화주명(상호)</span> </th>
-                            <th> <span> 전체수량 </span> </th>
-                            <th> <span> 출고수량 </span> </th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <input type="text" name="비엘">
-                            </td>
-                            <td>
-                                <input type="text" name="화주명">
-                            </td>
-                            <td>
-                                <input type="text" name="전체수량">
-                            </td>
-                            <td>
-                                <input type="text" name="출고수량">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="text" name="비엘">
-                            </td>
-                            <td>
-                                <input type="text" name="화주명">
-                            </td>
-                            <td>
-                                <input type="text" name="전체수량">
-                            </td>
-                            <td>
-                                <input type="text" name="출고수량">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="text" name="비엘">
-                            </td>
-                            <td>
-                                <input type="text" name="화주명">
-                            </td>
-                            <td>
-                                <input type="text" name="전체수량">
-                            </td>
-                            <td>
-                                <input type="text" name="출고수량">
-                            </td>
-                        </tr>
-
-                    </tbody>
-                </table>
-                <div class="plus-btn-cont">
-                    <a class="out-minus-btn minus-btn">-</a>
-                    <a class="out-plus-btn plus-btn">+</a>
-                </div>
-                <%- include("../partials/footer") -%>
-        </form>
-    </main>
+<main class="output-info">
+  <h1 class="page-heading">출고 요청서</h1>
+  <form action="/output" method="POST" autocomplete="off">
+    <%- include("../partials/top-table") -%>
+    <table class="bottom-table out-bottom-table">
+      <thead>
+        <tr>
+          <th><span> B/L NO. (비엘 번호)</span></th>
+          <th><span>화주명(상호)</span></th>
+          <th><span> 전체수량 </span></th>
+          <th><span> 출고수량 </span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input type="text" name="bl_number" />
+          </td>
+          <td>
+            <input type="text" name="client" />
+          </td>
+          <td>
+            <input type="text" name="total_quantity" />
+          </td>
+          <td>
+            <input type="text" name="quantity" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="text" name="bl_number" />
+          </td>
+          <td>
+            <input type="text" name="client" />
+          </td>
+          <td>
+            <input type="text" name="total_quantity" />
+          </td>
+          <td>
+            <input type="text" name="quantity" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="text" name="bl_number" />
+          </td>
+          <td>
+            <input type="text" name="client" />
+          </td>
+          <td>
+            <input type="text" name="total_quantity" />
+          </td>
+          <td>
+            <input type="text" name="quantity" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="plus-btn-cont">
+      <a class="out-minus-btn minus-btn">-</a>
+      <a class="out-plus-btn plus-btn">+</a>
+    </div>
+    <%- include("../partials/footer") -%>
+  </form>
+</main>
