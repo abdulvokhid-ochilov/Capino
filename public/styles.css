@@ -444,8 +444,8 @@ a {
 }
 .cfs-main {
   margin-top: 2rem;
-  width: 80vw;
-  height: 80vh;
+  width: 1200px;
+  height: auto;
 }
 
 .search {
@@ -455,7 +455,6 @@ a {
   align-items: center;
   justify-content: space-between;
 }
-
 .search-cel input {
   width: 10rem;
   height: 2rem;
@@ -468,7 +467,10 @@ a {
   background-color: var(--btn-blue);
   color: #fff;
   border-radius: 100px;
-  margin: 2rem;
+  margin-left: 2rem;
+}
+.find-btn {
+  background-color: rgb(184, 184, 184);
 }
 .pritn-btn {
   width: 6rem;
@@ -519,32 +521,18 @@ a {
     display: none;
   }
 }
-
-/* OUTPUT PRINT TABLE */
-.output-print-heading {
+/********* SINGLE-DB PAGE***********/
+.single-db-page {
+  width: 100%;
+  height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  padding-top: 4rem;
 }
-.output-print-heading table td {
-  border: 1px #333 solid;
-}
-.output-print-heading table {
-  width: 300px;
-  text-align: center;
-  border-collapse: collapse;
-}
-.print-page_qr {
-  height: 100px;
-  width: 100px;
-}
-.ouput-print-table tr td,
-.ouput-print-table th {
-  border: 1px solid #000;
-}
-.ouput-print-table {
-  border-collapse: collapse;
-  text-align: center;
+.single-db-bottom-table {
+  width: var(--main-width);
+  margin-bottom: 2rem;
 }
 /* INPUT PRINT PAGE */
 
