@@ -11,6 +11,8 @@ const outputdbLink = document.querySelector(".outputdb-link");
 const inputdbLink = document.querySelector(".inputdb-link");
 const guideLink = document.querySelector(".guide-link");
 const navLink = document.querySelectorAll(".nav-link");
+const search_cel_add = document.querySelector(".search-cel_add")
+
 const h1 = document.querySelector(".page-heading")
   ? document.querySelector(".page-heading").textContent
   : "";
@@ -38,19 +40,20 @@ const active = function (heading) {
     el.classList.remove("red-active");
   });
   if (h1 === "입고 조회") {
-    // inputdbLink.classList.add('active');
     inputdbLink.classList.add("blue-active");
+    search_cel_add.insertAdjacentHTML('beforeend',
+      `<label class="label" for="client">화주명</label>
+    <input type="text" id="client" name="client" placeholder="화주명"/>`)
   } else if (h1 === "출고 조회") {
-    // outputdbLink.classList.add('active');
     outputdbLink.classList.add("red-active");
+    search_cel_add.insertAdjacentHTML('beforeend',
+      `<label class="label" for="bl_number">BL</label>
+    <input type="text" id="bl_number" name="bl_number" placeholder="BL"/>`);
   } else if (h1 === "입고 요청서") {
-    // inputLink.classList.add("active");
     inputLink.classList.add("blue-active");
   } else if (h1 === "출고 요청서") {
-    // outputLink.classList.add("active");
     outputLink.classList.add("red-active");
   } else if (h1 === "QR사용법") {
-    // outputLink.classList.add("active");
     guideLink.classList.add("red-active");
   }
 };
