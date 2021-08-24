@@ -13,12 +13,12 @@ app.use(express.json());
 app.use(express.static(__dirname + '/public'));
 
 //login router
-const loginRouter = require("./routes/login");
-app.use("/", loginRouter);
+// const loginRouter = require("./routes/login");
+// app.use("/", loginRouter);
 
 //main router
 const mainRouter = require("./routes/main");
-app.use("/main", mainRouter);
+app.use("/", mainRouter);
 
 //output router
 const outputRouter = require("./routes/output");

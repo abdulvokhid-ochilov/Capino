@@ -28,6 +28,7 @@ exports.getDB = async (req, res) => {
     let start = req.body.from
       ? new Date(Date.parse(`${req.body.from} 00:00:00 GMT`))
       : new Date("May 29, 2021 00:00:00");
+
     let end = req.body.to
       ? new Date(Date.parse(`${req.body.to} 23:59:59 GMT`))
       : new Date(
@@ -35,9 +36,11 @@ exports.getDB = async (req, res) => {
             today.getMonth() + 1
           }, ${today.getDate()}, ${today.getFullYear()} 23:59:59 GMT`
         );
-    const name = req.body.name || /\w*/gi;
-    const contact = req.body.contact || /\w*/gi;
-    const car_number = req.body.car_number || /\w*/gi;
+
+    const clientName = req.body.name || /\w*/gi;
+    const phoneNo = req.body.phoneNo || /\w*/gi;
+    const carNo = req.body.carNo || /\w*/gi;
+
     if (req.body.search === "search") {
       let db = await inputDB
         .find({
@@ -45,9 +48,9 @@ exports.getDB = async (req, res) => {
             $gte: start,
             $lte: end,
           },
-          name: name,
-          contact: contact,
-          car_number: car_number,
+          _name: clientName,
+          _phoneNo: phoneNo,
+          _carNo: carNo,
         })
         .exec();
       db = db.sort((a, b) => {
