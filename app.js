@@ -17,29 +17,34 @@ app.use(express.static(__dirname + '/public'));
 // app.use("/", loginRouter);
 
 //main router
-const mainRouter = require("./routes/main");
-app.use("/", mainRouter);
+// const mainRouter = require("./routes/main");
+// app.use("/", mainRouter);
 
 //output router
-const outputRouter = require("./routes/output");
-app.use("/output", outputRouter);
+// const outputRouter = require("./routes/output");
+// app.use("/output", outputRouter);
 
 
 //input router
-const inputRouter = require("./routes/input");
-app.use("/input", inputRouter);
+// const inputRouter = require("./routes/input");
+// app.use("/input", inputRouter);
 
 // QR router
-const qrRouter = require("./routes/QR");
-app.use("/QR", qrRouter);
+// const qrRouter = require("./routes/QR");
+// app.use("/QR", qrRouter);
 
 //Guide 
-const guideRouter = require('./routes/guide');
-app.use('/guide', guideRouter);
+// const guideRouter = require('./routes/guide');
+// app.use('/guide', guideRouter);
+app.get('/', (req, res, next) => {
+    res.status(200).json({
+        status: 200,
+        message: 'success',
+        data: {
 
-//SIMPLE PAGE
-app.get('/simple-page', (req, res) => {
-    res.render('simple-page');
-});
+        }
+    })
+})
+
 
 module.exports = app;
