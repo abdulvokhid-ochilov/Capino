@@ -40,12 +40,28 @@ const send = async function (phone, title, imgPath) {
     // console.log('errorMessage:', e.error.errorMessage);
   }
 };
-
-exports.postQR = async (req, res) => {
+//generate jpeg file
+const convertToJpg = async (url) => {
   try {
-    send(req.body.phone, req.body.title, req.body.imgPath);
-    res.redirect("/output");
+    const imgPath = randomKey();
+    const buffer = Buffer.from(url.split(/,\s*/)[1], "base64");
+    const qr = await pngToJpeg({ quality: 90 })(buffer);
+    fs.writeFileSync(`${__dirname}/${imgPath}.jpeg`, qr);
+    return imgPath;
   } catch (err) {
-    res.send(err);
+    console.error(err);
   }
+};
+//generate qrcode
+const str = qrData();
+const url = await qr.toDataURL(str);
+const imgPath = await convertToJpg(url);
+res.status(200).json({
+  message: 'success'
+})
+//Random Key Generator
+const randomKey = () => {
+  const randomNum = Math.floor(Math.random() * 100 + 1);
+  const now = Date.now();
+  return `${randomNum}${now}`;
 };
