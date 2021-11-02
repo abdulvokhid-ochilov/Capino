@@ -5,34 +5,13 @@ const connection = require('./configdb');
 const createOutputTable = async () => {
   try {
     const result = await connection;
-    // await result.execute('drop table output')
+    await result.execute('drop table output')
     await result.execute(`create table output(
       bl_num varchar2(20) not null primary key,
       company_name varchar2(30) not null,
       quantity number  not null check(quantity >= 0), 
       unit varchar2(20) not null,
       enter_date date not null)`);
-  } catch (err) {
-    console.log(err);
-  }
-}
-
-
-const createOutputHistory = async () => {
-  try {
-    const result = await connection
-    await result.execute('drop table output_history')
-    await result.execute(`create table output_history(
-      driver_name varchar2(20) not null,
-      phone_num varchar(20) not null,
-      car_num varchar2(20) not null,
-      transaction_id varchar2(20) not null primary key,
-      bl_num varchar2(20) not null,
-      quantity number  not null, 
-      unit varchar2(20) not null,
-      dt date default sysdate, 
-      constraint fk_bl foreign key(bl_num) 
-      references output(bl_num))`);
   } catch (err) {
     console.log(err);
   }
@@ -70,6 +49,38 @@ const insert_output = async () => {
     console.log(err);
   }
 }
+
+const createOutputHistory = async () => {
+  try {
+    const result = await connection
+    // await result.execute('drop table output_history')
+    await result.execute(`create table output_history(
+      driver_name varchar2(20) not null,
+      phone_num varchar(20) not null,
+      car_num varchar2(20) not null,
+      transaction_id varchar2(20) not null,
+      bl_num varchar2(20) not null,
+      quantity number  not null, 
+      unit varchar2(20) not null,
+      dt date default sysdate, 
+      constraint fk_bl foreign key(bl_num) 
+      references output(bl_num))`);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+
+const createInputTable = async () => {
+  try {
+    const result = await connection;
+    await result.execute('drop input table');
+    await result.execute('create table input()')
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 
 
 if (process.argv[2] === '--output') {

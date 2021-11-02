@@ -18,14 +18,6 @@ app.use("/api/v1/output", outputRouter);
 // const inputRouter = require("./routes/input");
 // app.use("/input", inputRouter);
 
-// QR router
-// const qrRouter = require("./routes/QR");
-// app.use("/QR", qrRouter);
-
-//Guide 
-// const guideRouter = require('./routes/guide');
-// app.use('/guide', guideRouter);
-
 
 
 module.exports = app;
