@@ -7,8 +7,6 @@ const connection = require("../models/configdb");
 const catchAsyncErr = require('./../utils/catchAsyncErr');
 
 
-
-
 /*******  GET REQUEST *******/
 exports.getOutput = catchAsyncErr(async (req, res, next) => {
   const { bl_num } = { ...req.query };
@@ -33,28 +31,36 @@ exports.updateOutput = catchAsyncErr(async (req, res, next) => {
   const {
     bl_num, company_name, quantity, unit, driver_name, phone_num, car_num
   } = { ...req.body };
+
+  //generate random transaction_id
   const transaction_id = `${Math.floor(Math.random() * 100 + 1)}${Date.now()}`
+
   const binds = []
   let updateStr = '';
+  if (bl_num.length) {
+    for (let i = 0; i < bl_num.length; i++) {
+      // make updateSTR
+      updateStr += `when bl_num = '${bl_num[i]}' 
+      and (quantity - '${quantity[i]}') >= 0 
+      then (quantity - '${quantity[i]}') `;
 
-  for (let i = 0; i < bl_num.length; i++) {
+      // make binds data 
+      binds.push({
+        driver_name, phone_num, car_num, transaction_id, bl_num: bl_num[i], quantity: quantity[i], unit: unit[i], dt: new Date(Date.now())
+      })
+    }
+  } else {
     // make updateSTR
-    updateStr += `when bl_num = '${bl_num[i]}' 
-    and (quantity - '${quantity[i]}') >= 0 
-    then (quantity - '${quantity[i]}') `;
+    updateStr += `when bl_num = '${bl_num}' 
+    and (quantity - '${quantity}') >= 0 
+    then (quantity - '${quantity}') `;
 
     // make binds data 
     binds.push({
-      driver_name,
-      phone_num,
-      car_num,
-      transaction_id,
-      bl_num: bl_num[i],
-      quantity: quantity[i],
-      unit: unit[i],
-      dt: new Date(Date.now())
+      driver_name, phone_num, car_num, transaction_id, bl_num, quantity, unit, dt: new Date(Date.now())
     })
   }
+
   //1.update output table
   const db = await connection;
   const update = await db.execute(
@@ -76,7 +82,7 @@ exports.updateOutput = catchAsyncErr(async (req, res, next) => {
   const qrImage = await pngToJpeg({ quality: 90 })(buffer);
   fs.writeFileSync(`${__dirname}/${transaction_id}.jpeg`, qrImage);
 
-  //3. send qr code
+  //c. send qr code
   //coolsms-node-sdk config
   config.init({
     apiKey: process.env.APIKEY,
@@ -96,7 +102,7 @@ exports.updateOutput = catchAsyncErr(async (req, res, next) => {
       },
     ],
   });
-
+  // d. if(!err) => delete saved file and commit chages 
   if (result) {
     fs.unlinkSync(path.join(__dirname, `${transaction_id}.jpeg`));
     db.commit()

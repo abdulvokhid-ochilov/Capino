@@ -18,9 +18,12 @@ const outputHistoryRouter = require('./routes/outputHistoryRouter');
 app.use("/api/v1/output_history", outputHistoryRouter)
 
 //input router
-// const inputRouter = require("./routes/input");
-// app.use("/input", inputRouter);
+const inputRouter = require("./routes/inputRouter");
+app.use("/api/v1/input", inputRouter);
 
+// input_history router
+const inputHistoryRouter = require('./routes/inputHistoryRouter');
+app.use("/api/v1/input_history", inputHistoryRouter)
 
 
 module.exports = app;

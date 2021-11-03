@@ -64,9 +64,9 @@ const createOutputHistory = async () => {
     // await result.execute('drop table output_history')
     await result.execute(`create table output_history(
       driver_name varchar2(20) not null,
-      phone_num varchar(20) not null,
+      phone_num char(11) not null,
       car_num varchar2(20) not null,
-      transaction_id varchar2(20) not null,
+      transaction_id varchar2(30) not null,
       bl_num varchar2(20) not null,
       quantity number  not null, 
       unit varchar2(20) not null,
@@ -82,8 +82,24 @@ const createOutputHistory = async () => {
 const createInputTable = async () => {
   try {
     const result = await connection;
-    await result.execute('drop input table');
-    await result.execute('create table input()')
+    await result.execute('drop table input');
+    await result.execute(`create table input(
+      transaction_id varchar2(30) not null,
+      enter_date date not null,
+      driver_name varchar2(20) not null,
+      phone_number char(11) not null,
+      car_number varchar2(20) not null,
+      forwarder varchar2(20) not null,
+      destination_port varchar2(20) not null,
+      sonmyong varchar2(20) not null,
+      booking_num varchar2(20) not null,
+      departure_date date not null,
+      company_name varchar2(20) not null,
+      quantity number not null,
+      package varchar2(10) not null,
+      weight number not null,
+      volume number not null 
+    )`)
   } catch (err) {
     console.log(err);
   }
@@ -111,4 +127,6 @@ if (process.argv[2] === '--output') {
   createOutputHistory()
 } else if (process.argv[2] === '--insert_output') {
   insert_output()
+} else if (process.argv[2] === '--input') {
+  createInputTable()
 }
