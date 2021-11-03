@@ -1,0 +1,20 @@
+<body class="QR-body">
+    <div class="modal ">
+        <button><a class="close-modal" href="/output">&times;</a></button>
+        <div class="modal-con1">
+            <p class="qr-text"> QR 생성</p>
+            <img class="qrcode-img" src=<%=url%> alt="qrcode">
+        </div>
+        <div class="modal-con2">
+            <form action="/QR" method="POST">
+                <input type="text" name="title" style="position:absolute; visibility:hidden" value=<%=title %>>
+                <input type="text" name="imgPath" style="position:absolute; visibility:hidden" value=<%=imgPath %>>
+                <input type="text" name="phone" id="qr-phone-no">
+                <button class="qr-btn" type="submit">MMS전송</button>
+            </form>
+        </div>
+    </div>
+    <div class="overlay"></div>
+
+
+</body>

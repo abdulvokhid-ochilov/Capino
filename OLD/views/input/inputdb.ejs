@@ -1,0 +1,10 @@
+<section class="cfs-cont">
+    <%- include("../partials/nav") -%>
+        <main class="cfs-main">
+            <h1 class="page-heading">입고 조회</h1>
+            <form action="/input/inputdb" class="search" method="POST">
+                <%- include("../partials/db-form") -%>
+            </form>
+            <%- include("../partials/db-table") -%>
+        </main>
+</section>

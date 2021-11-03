@@ -1,0 +1,109 @@
+<%- include("../partials/nav") -%>
+    <section class="input-info">
+        <h1 class="page-heading">입고 요청서</h1>
+        <form action="/input" method="POST" autocomplete="off">
+            <%- include("../partials/top-table") -%>
+                <table class="top-table middle-table">
+                    <tbody>
+                        <tr>
+                            <th>선사/포워더</th>
+                            <td><input type="text" name="forwarder"></td>
+                            <th>도착항</th>
+                            <td><input type="text" name="destination_port"></td>
+                        </tr>
+                        <tr>
+                            <th>선명/황자</th>
+                            <td><input type="text" name="황자"></td>
+                            <th>출항일자</th>
+                            <td><input type="date" name="departure_date"></td>
+                        </tr>
+                        <tr>
+                            <th>부킹넘버</th>
+                            <td><input type="text" name="booking_number"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="inp-bottom-table bottom-table">
+                    <thead>
+                        <tr>
+                            <th lass="th-width"><span>화주명(상호)</span> </th>
+                            <th lass="th-width"> <span> 포장규격</span></th>
+                            <th class="th-width"> <span> 입고수량 </span> </th>
+                            <th class="th-width"> <span> 중량(kg) </span> </th>
+                            <th class="th-width"> <span> 용적(cbm) </span> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="td-width">
+                                <input type="text" name="shipper">
+                            </td>
+                            <td class="td-width">
+                                <select name="packaging" class="select">
+                                    <option value="BOX">BOX</option>
+                                    <option value="PALLET">PALLET</option>
+                                    <option value="FABRIC">FABRIC</option>
+                                </select>
+                            </td>
+                            <td class="td-width">
+                                <input type="text" name="quantity">
+                            </td>
+                            <td class="td-width">
+                                <input type="text" name="weight">
+                            </td>
+                            <td class="td-width">
+                                <input type="text" name="volume">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-width">
+                                <input type="text" name="shipper">
+                            </td>
+                            <td class="td-width">
+                                <select name="packaging" class="select">
+                                    <option value="BOX">BOX</option>
+                                    <option value="PALLET">PALLET</option>
+                                    <option value="FABRIC">FABRIC</option>
+                                </select>
+                            </td>
+                            <td class="td-width">
+                                <input type="text" name="quantity">
+                            </td>
+                            <td class="td-width">
+                                <input type="text" name="weight">
+                            </td>
+                            <td class="td-width">
+                                <input type="text" name="volume">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-width">
+                                <input type="text" name="shipper">
+                            </td>
+                            <td class="td-width">
+                                <select name="packaging" class="select">
+                                    <option value="BOX">BOX</option>
+                                    <option value="PALLET">PALLET</option>
+                                    <option value="FABRIC">FABRIC</option>
+                                </select>
+                            </td>
+                            <td class="td-width">
+                                <input type="text" name="quantity">
+                            </td>
+                            <td class="td-width">
+                                <input type="text" name="weight">
+                            </td>
+                            <td class="td-width">
+                                <input type="text" name="volume">
+                            </td>
+                        </tr>
+                      
+                    </tbody>
+                </table>
+                <div class="plus-btn-cont">
+                    <a class="inp-minus-btn minus-btn">-</a>
+                    <a class="inp-plus-btn plus-btn">+</a>
+                </div>
+                </div>
+                <%- include("../partials/footer") -%>
+    </section>

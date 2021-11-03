@@ -1,0 +1,32 @@
+<div class="print-container">
+  <div class="input-print-container">
+    <div class="input-print-heading">
+      <p>[보관용]</p>
+      <h1>
+        CFS 화물 입고증(<%= date.getFullYear()%><%=
+        date.getMonth().toString().padStart(2,0)%><%= date.getDate()%>-0014 )
+      </h1>
+    </div>
+    <%- include("./input-partials/inputPrintPart") -%>
+  </div>
+  <div class="input-print-middle">
+    <p class="input-print-middle_text">원신한무역</p>
+    <div class="input-print-middle_inner">
+      <img class="input-print-middle_img" src="<%=url %>" alt="qr" />
+    </div>
+  </div>
+  <div class="input-print-container">
+    <div class="input-print-heading">
+      <p>[차량용]</p>
+      <h1>
+        CFS 화물 입고증(<%= date.getFullYear()%><%= date.getMonth()%><%=
+        date.getDate()%>-0014 )
+      </h1>
+    </div>
+    <%- include("./input-partials/inputPrintPart") -%>
+  </div>
+</div>
+
+<div class="print-btn-container">
+  <button class="print-btn">출고증인쇄</button>
+</div>
