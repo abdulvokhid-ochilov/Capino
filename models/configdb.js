@@ -1,7 +1,4 @@
-const dotenv = require("dotenv");
-dotenv.config({ path: `${__dirname}/../config.env` });
 const Oracledb = require('oracledb');
-// console.log(module.exports);
 
 //Database connection 
 
